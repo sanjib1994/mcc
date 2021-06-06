@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="activity.css">
+		<style type="text/css">
+			.mholder{position: absolute;width: 101%;}
+			.cov{ background: #D04E3D;}
+			.mins,.minst {float: left;width: 1.572%;position:relative;height: 23px;}
+			.minst{width: 6.5%;    height: 100%;}
+			.mholder.medi { position: absolute;bottom: 47px;overflow: hidden;height: 15px;}
+			.mholder.exer { position: absolute; bottom: 0px;overflow: hidden;height: 18px;opacity: 0.6}
+			.mholder.medi .cov { background: #F8B34F;}
+			.mholder.waters { position: absolute; top: 33px;}
+			.mholder.waters .cov{background:#654C6B;}
+			.mytarg{background: url(cir.png) repeat-y center; background-size:5px;width: 10px;background-size: 8px;z-index:1}
+			.targ_holder{position: absolute;width: 100%; height: 100%; }
+			.fwmt-page .chat-container > .header-row > aside:nth-child(5){position:relative;right:-10px;width:12.45%}
+			.fwmt-page .chat-container > .header-row > aside:nth-child(6){}
+		    .mybg{background-color:rgba(228,234,213,0.4)}
+		    .mark{position:absolute;width:12px;}
+		    .mholder.activ{bottom:0px !important; height:52px; overflow:hidden;}
+		    .mholder.activ .mins{height:100%;}
+		    .cusleep{background:#0d1d53;}
+		    .cuexr{background:rgba(111, 162, 160, 0.84);width: 4%;}
+		    .mholder.activ .mins {width: 1.5px !important;}
+		    .mholder.activ .mins img{width:1.5px;}
+		    .mins img {position: absolute; width: 15px;top: 20px;left: -7px;z-index: 2;}
+		    .sleep-time .mins img{top:75px}
+		    .mins .slep-mun {width:25px}
+		    .chat-container > .chat-line-row > aside.fff {overflow: visible;}
+		    .foodie .mins img:not([alt="||"]){width:25px}
+		</style>
+<!--		<script type='text/javascript' src="http://stag.sigmatechservices.co.in/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>-->
+<!--        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>-->
+<!--<script type="text/javascript" src="http://www.netcu.de/templates/netcu/js/jquery.touchwipe.min.js"></script>-->
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+//    activeDataDisplay
+function activeDataDisplay(data){
+//    alert(data);
+jQuery(document).ready(function() {
+var arr_nw = [];
+var arr_dt = [];
+var arr_wk = [];
+var data_rangev = [];
+var arr_type = [];
+
+function empty(mixedVar) {
+    var undef
+    var key
+    var i
+    var len
+    var emptyValues = [undef, null, false, 0, '', '0']
+
+    for (i = 0, len = emptyValues.length; i < len; i++) {
+        if (mixedVar === emptyValues[i]) {
+            return true
+        }
+    }
+
+    if (typeof mixedVar === 'object') {
+        for (key in mixedVar) {
+            if (mixedVar.hasOwnProperty(key)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    return false
+}
+var my_food_obj = {};
+ var myJSONObject = JSON.parse(data);
+ /*var myJSONObject = {
+   "data":[
+      {
+         "show_date":"08/03",
+         "target_start_time":"00:00",
+         "target_end_time":"00:00",
+         "current_time":"15:13",
+         "values_for_food_mark":[
+            {
+               "type":"f",
+               "time":"15:31"
+            },
+            {
+               "type":"f",
+               "time":"15:29"
+            }
+         ],
+         "values_for_activity_mark":[
+
+         ],
+         "values_for_sleep_mark":[
+
+         ],
+         "values_for_exercise_mark":[
+
+         ]
+      }
+   ]
+};*/
+
+ //alert(myJSONObject);
+$.each(myJSONObject, function(index, val) {
+    if (typeof(val) == "object") {
+        $.each(val, function(i, v) {
+            my_food_obj[v.show_date] = v.values_for_food_mark
+        });
+    }
+});
+var cons = 0;
+$.each(myJSONObject, function(index, val) {
+    if (typeof(val) == "object") {
+
+        $.each(val, function(i_count, i_value) {
+            if (typeof(i_value) == "object") {
+                $.each(i_value, function(i_range, i_rangle_value) {
+					//console.log(i_rangle_value);
+                    if (i_range == "total_hour_sent") {
+                        var all = arr_nw.push(i_rangle_value);
+                    }
+                    if (i_range == "show_date") {
+                        var alll = arr_dt.push(i_rangle_value);
+                    }
+                    if (i_range == "show_date_value") {
+                        var allll = arr_wk.push(i_rangle_value);
+                    }
+                    if (i_range == "values_for_food_mark") {
+                        if (typeof(i_rangle_value) == "object" && !empty(i_rangle_value)) {
+                            $.each(i_rangle_value, function(i_key, i_val) {
+                                arr_type.push(i_val.type);
+                            });
+                        }
+                    }
+                });
+            }
+            cons++;
+        });
+    }
+});
+var cnts = myJSONObject.data.length;
+var sss = "";
+if(cnts>0){
+var tar_st = myJSONObject.data[0]['target_start_time'];//console.log(tar_st);
+    var tar_en = myJSONObject.data[0]['target_end_time'];//console.log(tar_en);
+    var tr_st = tar_st.split(":");//console.log(Math.round((tr_st[1]*0.1))*10);
+    var tr_en = tar_en.split(":");
+    var round_tr_st_0 = tr_st[0];
+    //var round_tr_st_1 = Math.round((tr_st[1]*0.1))*10;
+    var round_tr_st_1 = tr_st[1];
+    var round_tr_en_0 = tr_en[0];
+    //var round_tr_en_1 = Math.round((tr_en[1]*0.1))*10;
+    var round_tr_en_1 = tr_en[1];
+    var trs_time = new Date(2016, 11, 11, round_tr_st_0, round_tr_st_1, 0);//alert(trs_time);
+    var tre_time = new Date(2016, 11, 11, round_tr_en_0, round_tr_en_1, 0);//alert(tre_time);
+    var target_start_time = trs_time.getTime();//alert(target_start_time);
+    var target_end_time = tre_time.getTime();//alert(target_end_time);
+
+    var cur_time = myJSONObject.data[0]['current_time']; //console.log(cur_time)
+    var cu_st = cur_time.split(":");//console.log(cu_st[0]);
+    var curr_time = new Date(2016, 11, 11, cu_st[0], cu_st[1], 0);
+    var current_time = curr_time.getTime();
+
+   /* var dt = new Date();
+	var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+	//console.log(typeof(time));
+	//alert(time);
+	var trs_time_test = new Date(2016, 11, 11, dt.getHours(), dt.getMinutes(), 0);
+	
+	var current_time = trs_time_test.getTime();*/
+	
+	
+	
+
+var sss = "";
+var count = 0;
+//console.log(myJSONObject.data[1]['values_for_activity_mark'][0]['counts']);
+for (var cn = 0; cn < cnts; cn++) { 
+    var ftime = [];
+    var ftype = [];
+	var fdtime = [];
+    var fdtype = [];
+   // var ftype_food = [];
+	var ex_st_time=[];
+	var ex_en_time=[];
+	var sl_st_time=[];
+	var sl_en_time=[];
+	var sl_hst_time=[];
+	var sl_hen_time=[];
+    var flen = myJSONObject.data[cn]['values_for_activity_mark'].length;
+	var fdlen = myJSONObject.data[cn]['values_for_food_mark'].length;
+	//console.log(myJSONObject.data[cn]['values_for_food_mark']);
+	var exlen = myJSONObject.data[cn]['values_for_exercise_mark'].length;
+	//console.log(myJSONObject.data[cn]['values_for_exercise_mark']);
+	var slen = myJSONObject.data[cn]['values_for_sleep_mark'].length;
+	//console.log(myJSONObject.data[cn]['values_for_sleep_mark'].length);
+     //console.log(flen + exlen + slen);
+    for (var k = 0; k < flen; k++) {
+        var ntm = myJSONObject.data[cn]['values_for_activity_mark'][k]['time'].split(":");
+        //console.log(myJSONObject.data[cn]);
+        //var ntm_food = myJSONObject.data[cn]['values_for_food_mark'][k]['time'].split(":");
+        var ntm_time = new Date(2016, 11, 11, ntm[0], ntm[1], 0);
+        var food_ntm_time = ntm_time.getTime();
+        ftime.push(food_ntm_time);
+        //console.log(myJSONObject.day_data[cn]['values_for_food_mark'][k]['type']);
+        ftype.push(myJSONObject.data[cn]['values_for_activity_mark'][k]['counts']);
+        //ftype_food.push(myJSONObject.day_data[cn]['values_for_food_mark'][k]['type']);
+    }
+	for (var k = 0; k < fdlen; k++) {
+        var fddtm = myJSONObject.data[cn]['values_for_food_mark'][k]['time'].split(":");
+        //console.log(myJSONObject.data[cn]['values_for_food_mark'][k]['time']);
+        //var ntm_food = myJSONObject.data[cn]['values_for_food_mark'][k]['time'].split(":");
+        var fdtm_time = new Date(2016, 11, 11, fddtm[0], fddtm[1], 0);
+        var food_fdtm_time = fdtm_time.getTime();
+        fdtime.push(food_fdtm_time);
+        
+        fdtype.push(myJSONObject.data[cn]['values_for_food_mark'][k]['type']);
+		//console.log(fdtype);
+        //fstype_food.push(myJSONObject.day_data[cn]['values_for_food_mark'][k]['type']);
+		//console.log(fdtype);
+    }
+	
+	for (var g = 0; g < exlen; g++) {
+        var etm = myJSONObject.data[cn]['values_for_exercise_mark'][g]['start_time'].split(":");
+        var etm_time = new Date(2016, 11, 11, etm[0], etm[1], 0);
+        var ex_ntm_time = etm_time.getTime();
+        ex_st_time.push(ex_ntm_time);
+		
+		var entm = myJSONObject.data[cn]['values_for_exercise_mark'][g]['end_time'].split(":");
+        var entm_time = new Date(2016, 11, 11, entm[0], entm[1], 0);
+        var exn_ntm_time = entm_time.getTime();
+        ex_en_time.push(exn_ntm_time);
+        //ex_en_time.push(myJSONObject.data[cn]['values_for_exercise_mark'][k]['counts']);
+    }
+	
+	for (var h = 0; h < slen; h++) {
+        var stm = myJSONObject.data[cn]['values_for_sleep_mark'][h]['start_time'].split(":");
+        var stm_time = new Date(2016, 11, 11, stm[0], stm[1], 0);
+        var s_ntm_time = stm_time.getTime();
+       
+		
+		var sntm = myJSONObject.data[cn]['values_for_sleep_mark'][h]['end_time'].split(":");
+        var sntm_time = new Date(2016, 11, 11, sntm[0], sntm[1], 0);
+        var sxn_ntm_time = sntm_time.getTime();
+		if(s_ntm_time<sxn_ntm_time){
+		sl_st_time.push(s_ntm_time);
+        sl_en_time.push(sxn_ntm_time);
+		}
+		else{
+		sl_hst_time.push(s_ntm_time);
+        sl_hen_time.push(sxn_ntm_time);
+		}
+        //ex_en_time.push(myJSONObject.data[cn]['values_for_exercise_mark'][k]['counts']);
+    }
+    var fst = arr_dt[cn].split("/");
+    var fds_time = new Date(2016, 11, 11, fst[0], fst[1], 0);
+    var food_start_time = fds_time.getTime();
+
+
+    if (cn % 2 == 0) {
+        var str = "bg-row1";
+    } else {
+        var str = "bg-row2";
+    }
+    sss = sss + '<section class="chat-line-row ' + str + '"><aside><h4>' /* + arr_wk[cn] + '&nbsp;&nbsp;' */ + arr_dt[cn] + '<br>'/*  + arr_nw[cn]*/ + '</h4></aside><aside class="fff" style="position:relative;"><div class="targ_holder">';
+    
+    
+    
+   for (var i = 6; i < 18; i++) {
+            sss = sss + '<div class="cnt-blk blocks">';
+            for (var j = 0; j < 60; j += 5) {
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                //console.log(target_start_time + "<== target start ||| target end ==>"+ target_end_time);
+                //console.log(c_time);
+                if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time) { //alert();
+                    var tstr = "mytarg";
+                } else {
+                    var tstr = "";
+                }
+                if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                    var bstr = " mybg";
+                } else {
+                    var bstr = "";
+                }
+                sss = sss + '<div class="minst ' + tstr + bstr + '" title="' + i + ':' + j + '"></div>';
+            }
+            sss = sss + '</div>';
+        }
+        for (var i = 18; i < 24; i++) {
+            sss = sss + '<div class="cnt-blk blocks">';
+            for (var j = 0; j < 60; j += 5) {
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                //console.log(c_time);
+                if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time) { //alert();
+                    var tstr = "mytarg";
+                } else {
+                    var tstr = "";
+                }
+                if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                    var bstr = " mybg";
+                } else {
+                    var bstr = "";
+                }
+                sss = sss + '<div class="minst ' + tstr + bstr + '" title="' + i + ':' + j + '"></div>';
+            }
+            sss = sss + '</div>';
+        }
+        for (var i = 0; i < 6; i++) {
+            sss = sss + '<div class="cnt-blk blocks">';
+            for (var j = 0; j < 60; j += 5) {
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                //console.log(c_time);
+                if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time) { //alert();
+                    var tstr = "mytarg";
+                } else {
+                    var tstr = "";
+                }
+                if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                    var bstr = " mybg";
+                } else {
+                    var bstr = "";
+                }
+                sss = sss + '<div class="minst ' + tstr + bstr + '" title="' + i + ':' + j + '"></div>';
+            }
+            sss = sss + '</div>';
+        }
+    //target end
+    sss = sss + '</div>';
+	
+	
+	
+	 // *** Sleep Start ***//
+   
+    
+
+
+	// *** Sleep END ***//
+	
+	
+	 // *** Exercise Start ***//
+    
+    
+
+   
+	// *** Exercise END ***//
+	
+	
+	
+    // *** Activity Start ***//
+    for (var i = 6; i < 18; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder foodie">';
+		for (var j = 0; j < 60; j++) {
+				var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = fdtime.indexOf(c_time);
+                
+                for (var l = 0; l < fdtime.length; l++) {
+				console.log()
+            if(fdtime[l]==c_time){
+                 if(fdtype[l] == "f" || fdtype[l] == "b"){
+                                    act = act + "<img src='food.png'>";
+                               } else if(fdtype[l] == "w"){
+                                    act = act + "<img src='water.png'>";
+                               } else if(fdtype[l] == "m"){
+                                    act = act + "<img src='med.png'>";
+                               } else {
+                                var act = act + "";
+                               }
+            
+                }else{}
+    }
+    if(c_time == current_time){
+    //console.log(current_time);
+    var mark = "<img style='z-index:9;top:0px;' src='circlee-nw.png' alt='||'>";
+} else {mark ="";}
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + mark +'</div>';
+            }
+		sss = sss + '</div><div class="mholder activ">';
+        for (var j = 0; j < 60; j=j+5) {
+			var act="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();//console.log(c_time);
+            var ind = ftime.indexOf(c_time);//console.log(ftype[2]);
+            if(ind>=0)
+			{
+			act = act + '<img src="act-bar.png" style="height:'+ftype[ind]+0+'%;bottom: 0;position: absolute;">';
+			//console.log(act);
+			}
+			else
+			{
+			
+			}
+			sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+			
+        }
+        sss = sss + '</div><div class="mholder sleep-time">';
+		for (var j = 0; j < 60; j++) {
+			var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = sl_hen_time.indexOf(c_time);
+                var ind1 = sl_en_time.indexOf(c_time);
+                
+                for (var l = 0; l < sl_hen_time.length; l++) {
+				//console.log(fdtype[l]);
+				if(sl_hen_time[l]==c_time){ 
+					act = act + "<img class='slep-mun' src='sleep-moon.png'>";
+                }else{ var act = act + ""; }
+				}
+				for (var l = 0; l < sl_en_time.length; l++) {
+				//console.log(fdtype[l]);
+				if(sl_en_time[l]==c_time){ 
+					act = act + "<img class='slep-mun' src='sleep-moon.png'>";
+                }else{ var act = act + ""; }
+				}
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act +'</div>';
+			
+			/*var csltime="";var csltimes="";var csltimeg="";
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);
+			for(var b=0;b<sl_st_time.length;b++)
+			{
+			  if(c_time>=sl_st_time[b] && c_time<=sl_en_time[b]){csltime="cusleep";break;}else{csltime=""}
+			}
+			
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  if(c_time<=sl_hen_time[d]){csltimes="cusleep";}else{csltimes=""}
+			}
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  if(c_time>=sl_hst_time[d]){csltimeg="cusleep";}else{csltimeg=""}
+			}
+            sss = sss + '<div class="'+ csltimeg + ' ' + csltimes + ' mins ' + csltime + '" title="' + i + ':' + j + '"></div>';*/
+        }
+		sss = sss + '</div><div class="mholder exer">';
+		for (var j = 0; j < 60; j++) {var extime="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);//console.log(ind);
+			for(var b=0;b<exlen;b++)
+			{
+			  if(ctime>=ex_st_time[b] && ctime<=ex_en_time[b]){extime="cuexr";break;}else{extime=""}
+			}
+			
+            sss = sss + '<div class="mins ' + extime + '" title="' + i + ':' + j + '"></div>';
+        }
+		sss = sss + '</div></div>';
+		
+    }
+    for (i = 18; i < 24; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder foodie">';
+		for (var j = 0; j < 60; j++) {
+				var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = fdtime.indexOf(c_time);
+                
+                for (var l = 0; l < fdtime.length; l++) {
+				console.log()
+            if(fdtime[l]==c_time){
+                 if(fdtype[l] == "f" || fdtype[l] == "b"){
+                                    act = act + "<img src='food.png'>";
+                               } else if(fdtype[l] == "w"){
+                                    act = act + "<img src='water.png'>";
+                               } else if(fdtype[l] == "m"){
+                                    act = act + "<img src='med.png'>";
+                               } else {
+                                var act = act + "";
+                               }
+            
+                }else{}
+    }
+    if(c_time == current_time){
+    //console.log(current_time);
+    var mark = "<img style='z-index:9;top:0px;' src='circlee-nw.png' alt='||'>";
+} else {mark ="";}
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + mark +'</div>';
+            }
+		sss = sss + '</div><div class="mholder activ">';
+        for (var j = 0; j < 60;  j=j+5) { 
+			var act="";
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var ind = ftime.indexOf(c_time);
+			//console.log(ftype[ind]);
+             if(ind>=0)
+			{
+			act = act + '<img src="act-bar.png" style="height:'+ftype[ind]+0+'%;bottom: 0;position: absolute;">';
+			//console.log(act);
+			}
+			else
+			{
+			
+			}
+            sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+        }
+        sss = sss + '</div><div class="mholder sleep-time">';
+		for (var j = 0; j < 60; j++) {
+			var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = sl_en_time.indexOf(c_time);
+                
+                for (var l = 0; l < sl_en_time.length; l++) {
+            if(sl_en_time[l]==c_time){ 
+					act = act + "<img class='slep-mun' src='sleep-moon.png'>";
+                }else{ var act = act + ""; }
+    }
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act +'</div>';
+			
+			/* var csltime="";var csltimes="";var csltimeg="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);//console.log(ind);
+			for(var b=0;b<sl_st_time.length;b++)
+			{
+			  if(c_time>=sl_st_time[b] && c_time<=sl_en_time[b]){csltime="cusleep";break;}else{csltime=""}
+			}
+			
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  if(c_time<=sl_hen_time[d]){csltimes="cusleep";}else{csltimes=""}
+			 
+			}
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  
+			  if(c_time>=sl_hst_time[d]){csltimeg="cusleep";}else{csltimeg=""}
+			}
+			
+            sss = sss + '<div class="'+ csltimeg + ' ' + csltimes + ' mins ' + csltime + '" title="' + i + ':' + j + '"></div>'; */
+        }
+		sss = sss + '</div><div class="mholder exer">';
+		for (var j = 0; j < 60; j++) {var extime="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);//console.log(ind);
+			for(var b=0;b<exlen;b++)
+			{
+			  if(ctime>=ex_st_time[b] && ctime<=ex_en_time[b]){extime="cuexr";break;}else{extime=""}
+			}
+			
+            sss = sss + '<div class="mins ' + extime + '" title="' + i + ':' + j + '"></div>';
+        }
+		sss = sss + '</div></div>';
+    }
+
+    for (i = 0; i < 6; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder foodie">';
+		for (var j = 0; j < 60; j++) {
+				var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = fdtime.indexOf(c_time);
+                
+                for (var l = 0; l < fdtime.length; l++) {
+				console.log()
+            if(fdtime[l]==c_time){
+                 if(fdtype[l] == "f" || fdtype[l] == "b"){
+                                    act = act + "<img src='food.png'>";
+                               } else if(fdtype[l] == "w"){
+                                    act = act + "<img src='water.png'>";
+                               } else if(fdtype[l] == "m"){
+                                    act = act + "<img src='med.png'>";
+                               } else {
+                                var act = act + "";
+                               }
+            
+                }else{}
+    }
+    if(c_time == current_time){
+    //console.log(current_time);
+    var mark = "<img style='z-index:9;top:0px;' src='circlee-nw.png' alt='||'>";
+} else {mark ="";}
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + mark +'</div>';
+            }
+		sss = sss + '</div><div class="mholder activ">';
+        for (var j = 0; j < 60;  j=j+5) { 
+			var act="";
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var ind = ftime.indexOf(c_time);
+             if(ind>=0)
+			{
+			act = act + '<img src="act-bar.png" style="height:'+ftype[ind]+0+'%;width:1px;bottom: 0;position: absolute;">';
+			}
+			else
+			{
+			
+			}
+            sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+        }
+        sss = sss + '</div><div class="mholder sleep-time">';
+		for (var j = 0; j < 60; j++) {
+			var act="";
+                //How to get time here
+                var ctime = new Date(2016, 11, 11, i, j, 0);
+                var c_time = ctime.getTime();
+                var ind = sl_hen_time.indexOf(c_time);
+                
+                for (var l = 0; l < sl_hen_time.length; l++) {
+            if(sl_hen_time[l]==c_time){ 
+					act = act + "<img class='slep-mun' src='sleep-moon.png'>";
+                }else{ var act = act + ""; }
+    }
+                
+                sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act +'</div>';
+			
+			/* var csltime="";var csltimes="";var csltimeg="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);//console.log(ind);
+			for(var b=0;b<sl_st_time.length;b++)
+			{
+			  if(c_time>=sl_st_time[b] && c_time<=sl_en_time[b]){csltime="cusleep";break;}else{csltime=""}
+			}
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  if(c_time<=sl_hen_time[d]){csltimes="cusleep";}else{csltimes=""}
+			}
+			for(var d=0;d<sl_hst_time.length;d++)
+			{
+			  if(c_time>=sl_hst_time[d]){csltimeg="cusleep";}else{csltimeg=""}
+			}
+            sss = sss + '<div class="'+ csltimeg + ' ' + csltimes + ' mins ' + csltime + '" title="' + i + ':' + j + '"></div>'; */
+        }
+		sss = sss + '</div><div class="mholder exer">';
+		for (var j = 0; j < 60; j++) {var extime="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var sind = sl_st_time.indexOf(c_time);//console.log(ind);
+			for(var b=0;b<exlen;b++)
+			{
+			  if(ctime>=ex_st_time[b] && ctime<=ex_en_time[b]){extime="cuexr";break;}else{extime=""}
+			}
+			
+            sss = sss + '<div class="mins ' + extime + '" title="' + i + ':' + j + '"></div>';
+        }
+		sss = sss + '</div></div>';
+    }
+	// *** Activity END ***//
+    count++;
+    sss = sss + '<div class="cb"></div></aside><div class="cb"></div></section>';
+}
+}
+jQuery(".loader").hide();
+if(sss==""){ var sec_height = jQuery(".head_row").height();
+    sss="<div style='text-align:center;margin-top:"+sec_height+"px'><h3>No Data Found</h3></div>";}
+jQuery(sss).insertAfter(".head_row");
+                       var sec_height = jQuery(".head_row").height();
+                       //var j_height = jQuery(".chat-line-row").height();
+                       jQuery(".head_row + section").css("margin-top",sec_height);
+                       jQuery(".chat-container section").last().css("margin-bottom","12px");
+});
+}
+</script>
+	</head>
+	<body>
+		<div class="fwmt-page">
+			<div class="chat-container">
+				<section class="header-row head_row">
+                    <aside></aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>9</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>12</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>3</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>9</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>12</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>3</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>AM</small>
+                    </aside>
+                    <div class="cb"></div>
+                </section>
+                <div class="loader"><img src="loading.png" alt="loader..." /></div>
+			</div>
+		</div>
+	</body>
+</html>

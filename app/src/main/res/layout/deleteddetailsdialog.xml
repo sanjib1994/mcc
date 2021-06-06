@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/toplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/messagefordelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="You have already entered sleep for this time. Do you want to replace it?\n\nThe following records will be deleted:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/listcontaior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/cement">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listdeletedates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            ></androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Grey">
+
+
+        <Button
+            android:id="@+id/no_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="CANCEL"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cement" />
+
+
+        <Button
+            android:id="@+id/yes_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="OK"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cement" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:background="@color/health_bg"
+    tools:context="com.salk.mycircadianclock.health_vitals.LogHealthDataActivity">
+
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:id="@+id/hearder_lay"
+                android:layout_width="match_parent"
+                android:layout_height="210dp" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true" >
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/LOG_HEALTH"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/health_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:src="@mipmap/health_new" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/date_time_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hearder_lay"
+                android:background="#f1f1f1" >
+
+                <RelativeLayout
+                    android:id="@+id/date_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/Date"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/select_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="0dp"
+                        android:background="@color/white"
+                        android:text="@string/Today"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/start_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/Time"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/white"
+                        android:text="3:25 PM"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/end_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/start_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/fasting_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/Fasting"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        />
+                    <ImageView
+                        android:id="@+id/info_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/info_health_fasting"
+                        android:layout_toRightOf="@+id/fasting_title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        />
+                    <CheckBox
+                        android:id="@+id/fasting_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_time_lay" >
+
+                <LinearLayout
+                    android:id="@+id/tab_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:weightSum="2" >
+
+                    <TextView
+                        android:id="@+id/vital_tab"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:text="@string/Vitals"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="#d1d2d4" />
+                    <TextView
+                        android:id="@+id/lab_tab"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:text="@string/Labs"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="#a8a8a8" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/unitsection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tab_lay"
+                    android:background="#d1d2d4">
+
+                    <RelativeLayout
+                        android:id="@+id/data_type_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Data_Type"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/white" >
+
+
+                            <Spinner
+                                android:id="@+id/datatype_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/white"
+                                android:textColor="@color/black"
+                                android:layout_toLeftOf="@+id/img_down_arr"
+
+                                />
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:padding="5dp"
+                                android:id="@+id/img_down_arr"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_alignParentRight="true"
+                                android:src="@mipmap/dow_arrow" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/all_value_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="visible"
+                        android:layout_below="@+id/data_type_layout" >
+
+                        <RelativeLayout
+                            android:id="@+id/value_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            >
+
+                            <TextView
+                                android:id="@+id/value_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/systolic_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_below="@+id/value_layout" >
+
+                            <TextView
+                                android:id="@+id/syvalue_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="Systolic Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/systolic_value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/diastolic_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"
+                            android:layout_below="@+id/systolic_layout" >
+
+                            <TextView
+                                android:id="@+id/divalue_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="Diastolic Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/diastolic_value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/chol_total_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/chol_total_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="Total Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/chol_total_value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/ldl_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"
+                            android:layout_below="@+id/chol_total_layout"
+                            >
+
+                            <TextView
+                                android:id="@+id/ldl_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="LDL Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/ldl_value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/hdl_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"
+                            android:layout_below="@+id/ldl_layout"
+
+                            >
+
+                            <TextView
+                                android:id="@+id/hdl_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:text="HDL Value"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/white" >
+
+                                <Button
+                                    android:id="@+id/hdl_value"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:text="_"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/unit_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/all_value_layout" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Units"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/white" >
+
+                            <Spinner
+                                android:id="@+id/unit_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/white"
+                                android:textColor="@color/black"
+
+                                />
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:padding="5dp"
+                                android:layout_alignParentRight="true"
+                                android:src="@mipmap/dow_arrow" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/hhghhh"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_below="@+id/unit_layout"></RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/button_bar_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tab_layout"
+                android:layout_marginBottom="70dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:visibility="visible" >
+
+                <com.salk.mycircadianclock.Utility.FancyButton
+                    android:id="@+id/btn_exit_spotify"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:padding="13dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    fancy:fb_borderColor="#FFFFFF"
+                    fancy:fb_defaultColor="#FFFFFF"
+                    fancy:fb_focusColor="@android:color/darker_gray"
+                    fancy:fb_iconPosition="left"
+                    fancy:fb_radius="30dp"
+                    fancy:fb_text="@string/CANCEL"
+                    fancy:fb_textColor="#fca520"
+                    fancy:fb_textSize="22dp" />
+
+                <com.salk.mycircadianclock.Utility.FancyButton
+                    android:id="@+id/btn_save_spotify"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="13dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    fancy:fb_borderColor="#FFFFFF"
+                    fancy:fb_defaultColor="#FFFFFF"
+                    fancy:fb_focusColor="@android:color/darker_gray"
+                    fancy:fb_iconPosition="left"
+                    fancy:fb_radius="30dp"
+                    fancy:fb_text="@string/SAVE"
+                    fancy:fb_textColor="@color/Grey"
+                    fancy:fb_textSize="22dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        ></RelativeLayout>
+    <include
+        layout="@layout/tabar_layout"
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

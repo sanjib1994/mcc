@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<style type="text/css">
+			.mholder{position: absolute;
+    top: 21px;
+    width: 101%;}
+			.cov{ background: #D04E3D;}
+			.mins,.minst {
+    float: left;
+    width: 1.672%;
+    position:relative;
+    height: 5px;
+    /* margin-right: 0.001px; */
+}
+			.minst{width: 8.3%;    height: 100%;}
+			.mholder.medi { position: absolute; top: 9px;}
+			.mholder.medi .cov { background: #F8B34F;}
+			.mholder.waters { position: absolute; top: 33px;}
+			.mholder.waters .cov{background:#654C6B;}
+			.mytarg{background: url(cir.png) repeat-y center; background-size:5px;width: 10px;
+    background-size: 8px;}
+			/*.brdr{border-right:1px solid #A8DBE9;}*/
+			.targ_holder{position: absolute;
+    width: 100%;
+    height: 100%;
+    }
+	  .mybg{background-color:rgba(228,234,213,0.4)}
+      .mark{position:absolute;width:12px;}
+		</style>
+<!--		<script type='text/javascript' src="http://stag.sigmatechservices.co.in/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>-->
+<!--        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>-->
+<!--<script type="text/javascript" src="http://www.netcu.de/templates/netcu/js/jquery.touchwipe.min.js"></script>-->
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+
+jQuery(document).ready(function() {
+var arr_nw = [];
+var arr_dt = [];
+var arr_wk = [];
+var data_rangev = [];
+var arr_type = [];
+function empty (mixedVar) {
+  var undef
+  var key
+  var i
+  var len
+  var emptyValues = [undef, null, false, 0, '', '0']
+
+  for (i = 0, len = emptyValues.length; i < len; i++) {
+    if (mixedVar === emptyValues[i]) {
+      return true
+    }
+  }
+
+  if (typeof mixedVar === 'object') {
+    for (key in mixedVar) {
+      if (mixedVar.hasOwnProperty(key)) {
+        return false
+      }
+    }
+    return true
+  }
+
+  return false
+}
+var my_food_obj = {};
+var myJSONObject = {
+    "target_start_time": "06:30",
+    "target_end_time": "22:30",
+    "date_data_cnt": 10,
+    "day_data": [{
+            "show_date": "12/03",
+            "time_show_class": "weekend",
+            "total_hour_sent": "14hrs",
+            "show_date_value": "S",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/04",
+            "time_show_class": "weekday",
+            "show_date_value": "M",
+            "total_hour_sent": "12.5hrs",
+            "values_for_food_mark": [{
+                "type": "food",
+                "time": "10:00",
+                "showtooltip_eating_time_id": 467320,
+                "image_url": "test",
+                "image_replacement": "test"
+            }, {
+
+                "type": "medicine",
+                "time": "12:00",
+                "showtooltip_eating_time_id": 467320,
+                "image_url": "test",
+                "image_replacement": "test"
+            }, {
+
+                "type": "water",
+                "time": "16:00",
+                "showtooltip_eating_time_id": 467320,
+                "image_url": "test",
+                "image_replacement": "test"
+            }, {
+
+                "type": "food",
+                "time": "21:00",
+                "showtooltip_eating_time_id": 467320,
+                "image_url": "test",
+                "image_replacement": "test"
+            }]
+        }, {
+            "show_date": "12/05",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.5hrs",
+            "show_date_value": "T",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/06",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.2hrs",
+            "show_date_value": "W",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/07",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.5hrs",
+            "show_date_value": "T",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/08",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.5hrs",
+            "show_date_value": "F",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/09",
+            "time_show_class": "weekend",
+            "total_hour_sent": "12.3hrs",
+            "show_date_value": "S",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/10",
+            "time_show_class": "weekend",
+            "total_hour_sent": "12.4hrs",
+            "show_date_value": "S",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/11",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.5hrs",
+            "show_date_value": "M",
+            "values_for_food_mark": ""
+        }, {
+            "show_date": "12/12",
+            "time_show_class": "weekday",
+            "total_hour_sent": "12.5hrs",
+            "show_date_value": "T",
+            "values_for_food_mark": ""
+        }
+
+    ]
+};
+$.each(myJSONObject, function(index, val) {
+     if (typeof(val) == "object") {
+        $.each(val, function(i, v) {
+             my_food_obj[v.show_date] = v.values_for_food_mark
+        });
+     }
+});
+//console.log(my_food_obj)
+var cons = 0;
+console.log(myJSONObject.day_data[1]['values_for_food_mark'][0]['time']);
+$.each(myJSONObject, function(index, val) {
+    if (typeof(val) == "object") {
+       
+        $.each(val, function(i_count, i_value) {
+            if (typeof(i_value) == "object") {
+            //console.log(i_count +"====>"+i_value);
+            //arr_nw.push(i_count);
+            $.each(i_value, function(i_range, i_rangle_value) {
+            // console.log(i_rangle_value);
+                //console.log(i_range +" ===> "+ i_rangle_value);
+                //console.log(i_rangle_value);
+                if(i_range == "total_hour_sent"){ //alert(i_rangle_value)
+                    var all = arr_nw.push(i_rangle_value);
+                    //alert(arr_nw[0]);
+                    
+                }
+                if(i_range == "show_date"){ //alert(i_rangle_value)
+                    var alll = arr_dt.push(i_rangle_value);
+                    //alert(arr_nw[0]);
+                    
+                }
+                if(i_range == "show_date_value"){ //alert(i_rangle_value)
+                    var allll = arr_wk.push(i_rangle_value);
+                    //alert(arr_nw[0]);
+                    
+                }
+                if(i_range == "values_for_food_mark"){ //alert(123);
+                    /*console.log(i_range +" ===> "+ i_rangle_value);*/
+                    if(typeof(i_rangle_value) == "object" && !empty(i_rangle_value)){
+                        $.each(i_rangle_value, function(i_key, i_val) {
+                             //console.log(i_key +" ===> "+ i_val.type);
+                             //console.log("<div>" + i_val.type + "</div>");
+                             arr_type.push(i_val.type);
+                        });
+                    }
+                }
+                    
+
+            });
+        }
+        cons++;
+        });
+    }
+});
+var cnts = myJSONObject.date_data_cnt;
+//alert(cnts);
+//var cnts = cons;
+
+//console.log(cnts);
+var tar_st = myJSONObject.target_start_time;
+var tar_en = myJSONObject.target_end_time;
+var tr_st=tar_st.split(":");
+var tr_en=tar_en.split(":");
+var trs_time = new Date(2016, 11, 11, tr_st[0], tr_st[1], 0);
+var tre_time = new Date(2016, 11, 11, tr_en[0], tr_en[1], 0);
+var target_start_time = trs_time.getTime();
+var target_end_time = tre_time.getTime();
+
+var sss = "";
+var count = 0;
+
+for (var cn = 0; cn < cnts; cn++) { //console.log(cnts);
+    var fst = arr_dt[cn].split("/");
+    var fds_time = new Date(2016, 11, 11, fst[0], fst[1], 0);
+    var food_start_time = fds_time.getTime();
+    
+if(arr_type[cn] != undefined){
+   //console.log(arr_type[cn]);
+   if(arr_type[cn] == "food"){ 
+        var act = "<img src='food.png'>";
+   } else if(arr_type[cn] == "water"){
+        var act = "<img src='water.png'>";
+   } else if(arr_type[cn] == "medicine"){
+        var act = "<img src='med.png'>";
+   } else {
+    var act = "";
+   }
+}
+var food = "";
+var water = "";
+var medicine = "";
+    //var weekd = Object.keys(myJSONObject)[cn];
+    if (cn % 2 == 0) {
+        var str = "bg-row1";
+    } else {
+        var str = "bg-row2";
+    }
+    //console.log(cn);
+    sss = sss + '<section class="chat-line-row ' + str + '"><aside><h4>'+ arr_wk[cn] +'&nbsp;&nbsp;'+arr_dt[cn] +'<br>' + arr_nw[cn] + '</h4></aside><aside class="fff" style="position:relative;"><div class="targ_holder">';
+    //console.log(myJSONObject.day_data[cn]['values_for_food_mark']);
+    var path = myJSONObject.day_data[cn]['values_for_food_mark'];//console.log($.isEmptyObject({path}));
+    if($.isEmptyObject({path}) == false){
+        //alert(123);
+    }
+   /* var arr_nw1=[];
+    for(var t = 1; t < 10; t++){
+        
+        arr_nw1.push(t);
+        
+    }*/
+    //console.log(arr_nw1);
+	for (var i = 6; i < 18; i++) {
+	sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j+=5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+			if(c_time == target_start_time || c_time == target_end_time) {var tstr="mytarg";}else{var tstr="";}
+			 if (c_time >= target_start_time && c_time <= target_end_time) {var bstr=" mybg";}else{var bstr="";}
+           sss = sss + '<div class="minst '+ tstr + bstr+'" title="' + i + ':' + j + '"></div>';
+           //console.log(act);
+        }
+		sss = sss + '</div>';
+    }
+	for (var i = 18; i < 24; i++) {
+	sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j+=5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+			if(c_time == target_start_time || c_time == target_end_time) {var tstr="mytarg";}else{var tstr="";}
+			if (c_time >= target_start_time && c_time <= target_end_time) {var bstr=" mybg";}else{var bstr="";}
+           sss = sss + '<div class="minst '+ tstr + bstr+'" title="' + i + ':' + j + '"></div>';
+        }
+		sss = sss + '</div>';
+    }
+	for (var i = 0; i < 6; i++) {
+	sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j+=5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+			if(c_time == target_start_time || c_time == target_end_time) {var tstr="mytarg";}else{var tstr="";}
+			if (c_time >= target_start_time && c_time <= target_end_time) {var bstr=" mybg";}else{var bstr="";}
+           sss = sss + '<div class="minst '+ tstr +bstr+'" title="' + i + ':' + j + '"></div>';
+        }
+		sss = sss + '</div>';
+    }
+    //target end
+	sss = sss + '</div>';
+    //return !1;
+    // *** Daily Feedogram Start ***//
+            for (var i = 6; i < 18; i++) {
+                sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+                for (var j = 0; j < 60; j++) {
+                    var ctime = new Date(2016, 11, 11, i, j, 0);
+                    var c_time = ctime.getTime();
+                    //alert(c_time +" & "+food_start_time );
+                    if (c_time == target_start_time) {
+                        var tstr = "ok";
+                    } else {
+                        var tstr = "";
+                    }
+                    /* if(foods[cn]!='0:0'){ //alert(f)
+                    if (c_time >= food_start_time && c_time <= food_end_time) {
+                        var str = "cov";
+                    } else {
+                        var str = "";
+                    }
+                    } else {
+                        //alert(123);
+                    } */
+                    sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+                }
+                sss = sss + '</div></div>';
+        }
+        for (i = 18; i < 24; i++) {
+                sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+                for (var j = 0; j < 60; j++) {
+                    var ctime = new Date(2016, 11, 11, i, j, 0);
+                    var c_time = ctime.getTime();
+                    //alert(c_time +" & "+food_start_time );
+                    if (c_time == target_start_time ) {
+                        var tstr = "ok1";
+                    } else {
+                        var tstr = "";
+                    }
+                    /* if(foods[cn]!='0:0'){ //alert(f)
+                    if (c_time >= food_start_time && c_time <= food_end_time) {
+                        var str = "cov";
+                    } else {
+                        var str = "";
+                    }
+                    } else {
+                        //alert(123);
+                    } */
+                    sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+                }
+                sss = sss + '</div></div>';
+        }
+
+        for (i = 0; i < 6; i++) {
+                sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+                for (var j = 0; j < 60; j++) {
+                    var ctime = new Date(2016, 11, 11, i, j, 0);
+                    var c_time = ctime.getTime();
+                    //alert(c_time +" & "+food_start_time );
+                    if (c_time == target_start_time) {
+                        var tstr = "ok1";
+                    } else {
+                        var tstr = "";
+                    }
+                    /* if(foods[cn]!='0:0'){ //alert(f)
+                    if (c_time >= food_start_time && c_time <= food_end_time) {
+                        var str = "cov";
+                    } else {
+                        var str = "";
+                    }
+                    } else {
+                        //alert(123);
+                    } */
+                    sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+                }
+                sss = sss + '</div></div>';
+}
+    count++;
+    sss = sss + '<div class="cb"></div></aside><div class="cb"></div></section>';
+}
+// *** Daily Feedogram END ***//
+jQuery(sss).insertAfter(".head_row");
+});
+</script>
+	</head>
+	<body>
+		<div class="fwmt-page">
+			<div class="chat-container">
+				<section class="header-row head_row">
+                    <aside></aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>9</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>12</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>3</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>9</strong>
+                        <small>PM</small>
+                    </aside>
+                    <aside>
+                        <strong>12</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>3</strong>
+                        <small>AM</small>
+                    </aside>
+                    <aside>
+                        <strong>6</strong>
+                        <small>AM</small>
+                    </aside>
+                    <div class="cb"></div>
+                </section>
+			</div>
+		</div>
+	</body>
+</html>

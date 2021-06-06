@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+      <dimen name="preference_icon_width">50.0dip</dimen>
+    <dimen name="preference_margin">19.0dip</dimen>
+    <dimen name="preference_widget_icon_width">48.0dip</dimen>
+    <dimen name="list_item_height">51.0dip</dimen>
+    <dimen name="radius_large">120dp</dimen>
+    <dimen name="radius_small">30dp</dimen>
+    <dimen name="radius_medium">72dp</dimen>
+
+    <!-- General dimensions -->
+    <dimen name="toast_hover">64dp</dimen>
+    <dimen name="buttontoast_hover">24dp</dimen>
+    <dimen name="buttontoast_x_padding">12dp</dimen>
+    <dimen name="cardtoast_margin">4dp</dimen>
+
+</resources>

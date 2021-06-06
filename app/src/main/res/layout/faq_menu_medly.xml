@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="10dp">
+   <TextView 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="A Menu Medley is a visual representation for text data. The importance of each word displayed will correlate with its size or color (larger words appear more often in your diet).\n\nStep 1:\n\nTo get to the menu medley, first go to your Feedogram, so your screen should look like this:"/>
+
+   <ImageView 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@mipmap/feedogram"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="10dp"/>
+   
+   <TextView 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="\n\nStep 2:\n\nClick on the history button on the bottom left of the screen. Screen should look like this:"/>
+    <ImageView 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@mipmap/feedogram_history"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="10dp"/>
+    <TextView 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="\n\nStep 3:\n\nIf you click on any of the weeks (bars) you will be able to see the menu medley for that week. It will look like this:"/>
+    <ImageView 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@mipmap/menu_medly"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="10dp"/>
+    <TextView 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="\n\nStep 4:\n\nIf you click on the list in the top right hand corner, it will show you what your logged and how many times you logged it that week."/>
+    <ImageView 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@mipmap/food_count"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="10dp"/>
+</LinearLayout>

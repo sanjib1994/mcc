@@ -1,0 +1,149 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/salk_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/loginboxlayout"
+            android:layout_alignRight="@+id/loginboxlayout"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/loginnew" />
+
+
+        <RelativeLayout
+            android:id="@+id/loginboxlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/salk_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/user_icon_new" />
+
+            <RelativeLayout
+                android:id="@+id/below_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_icon">
+
+                <Button
+                    android:id="@+id/buttonOk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/buttonbg"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:text="@string/LOGIN"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/edit_text_white"
+                    android:drawableLeft="@mipmap/email_login"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:hint="@string/Enter_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/white">
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editTextAccessCode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextEmail"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_white"
+                    android:drawableLeft="@mipmap/user_login"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:hint="@string/Enter_access_code"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/white"></EditText>
+
+                <TextView
+                    android:id="@+id/textView_L"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView1"
+                    android:layout_marginTop="-2dp"
+                    android:autoLink="web"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="italic"
+                    android:visibility="visible" />
+
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextAccessCode"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:text="@string/research_use"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="italic"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/Forget_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginboxlayout"
+            android:layout_centerHorizontal="true"
+            android:text="@string/Forgot_your_access_code"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

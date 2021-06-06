@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/editable_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Edit sleep on: Saturday. Oct 22"
+        android:textSize="18dp" />
+
+    <RelativeLayout
+        android:id="@+id/titlelay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/bedtimetile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:text="Bed time"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/risetimetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:text="Rise time"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bodylay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlelay"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/bedtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:text="09:00pm"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/risetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:text="5:00am"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlelay"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:layout_toLeftOf="@+id/update"
+            android:text="Cancel"
+            android:textColor="@color/btn_normal"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:text="Update"
+            android:textColor="@color/btn_normal"
+            android:textSize="15dp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/sleptfor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Slept for : 20:00 h"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

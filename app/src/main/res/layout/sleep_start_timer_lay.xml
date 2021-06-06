@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/transparent_sleep"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/main_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="185dp"
+        android:weightSum="5" >
+
+        <ImageView
+            android:id="@+id/sleepnow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/now_selected" />
+
+        <ImageView
+            android:id="@+id/sleepfive_mins"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/five_selected" />
+
+        <ImageView
+            android:id="@+id/sleepten_mins"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/tenselected" />
+
+        <ImageView
+            android:id="@+id/sleepfifteen_mins"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/fifteen_selected" />
+
+        <ImageView
+            android:id="@+id/sleepgreaterfifteen_mins"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/thirty_selected" />
+    </LinearLayout>
+
+</RelativeLayout>

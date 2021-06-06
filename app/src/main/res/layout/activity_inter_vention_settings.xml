@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.salk.mycircadianclock.settings.InterVentionSettingsActivity">
+
+    <RelativeLayout
+        android:id="@+id/action_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#93bc35"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/Settings"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="normal" />
+
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_below="@+id/action_bar_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/header1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e7e8e9"
+                android:padding="10dp"
+                android:text="@string/Notify_me_when"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rel1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header1"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/beginfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:text="@string/My_eating_window_end"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/beginfast_toggle"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_selection"
+                    android:text="ToggleButton"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/rel1"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/rel2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view1"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/fastcomplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:text="@string/My_eating_window_begins"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/fastcomplete_toggle"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_selection"
+                    android:text="ToggleButton"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/rel2"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/rel4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/view3"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/taskmedicinewithtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:text="@string/Medicine_reminder_new"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/rel4"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/relt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view4"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/taskmedicinewithtime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="@string/Remind_me"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/faststartreminderhour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Grey"
+                    android:text="@string/zerohr"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@+id/taskmedicinewithtime1"
+                    />
+                <TextView
+                    android:id="@+id/takemedicinetimer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="@string/before_my_eating_window_ends"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/faststartreminderhour"
+
+                    />
+                <ToggleButton
+                    android:id="@+id/fastingtimer_toggle1"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_selection"
+                    android:text="ToggleButton"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/header2uiui"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e7e8e9"
+                android:padding="10dp"
+                android:layout_below="@+id/relt"
+                android:text="@string/My_Targets"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/reltt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header2uiui"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <RelativeLayout
+                    android:id="@+id/relttt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/taskmedicinewithtime11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Sleep_start_time"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/sleepstart_time"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@color/Grey"
+                        android:text="@string/zerohr"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toRightOf="@+id/taskmedicinewithtime11"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/reltttt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/relttt">
+                    <TextView
+                        android:id="@+id/takemedicinetimer11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Sleep_duration"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+
+                        />
+                    <TextView
+                        android:id="@+id/sleep_duration_time"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@color/Grey"
+                        android:text="@string/zerohr"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center"
+                        android:layout_toRightOf="@+id/takemedicinetimer11"
+                        />
+                </RelativeLayout>
+                <ToggleButton
+                    android:id="@+id/sleep_duration_target_toggle"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_selection"
+                    android:text="ToggleButton"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view555"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/reltt"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/rel5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view555"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/eatingwindowtarget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="@null"
+                    android:text="@string/Eating_window_target"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/eatingwindowtarget_starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:background="@color/Grey"
+                    android:text="0:00 AM"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_below="@+id/eatingwindowtarget"
+
+                    />
+                <TextView
+                    android:id="@+id/to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eatingwindowtarget"
+                    android:background="@null"
+                    android:text="@string/to"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:padding="3dp"
+                    android:layout_toRightOf="@+id/eatingwindowtarget_starttime"/>
+
+                <TextView
+                    android:id="@+id/eatingwindowtarget_endtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eatingwindowtarget"
+                    android:background="@color/Grey"
+                    android:text="0:00 PM"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="3dp"
+                    android:layout_toRightOf="@+id/to"/>
+                <ToggleButton
+                    android:id="@+id/eatingwindowtarget_toggle"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_selection"
+                    android:text="ToggleButton"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/rel5"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/rel6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view5"
+                android:background="@null"
+                android:padding="10dp" >
+
+                <RelativeLayout
+                    android:id="@+id/inner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:id="@+id/activitytarget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@string/Activity_target"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/activitytarget_steps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/activitytarget"
+                        android:background="@color/Grey"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:padding="3dp"
+                        />
+                    <TextView
+                        android:id="@+id/stepss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/activitytarget"
+                        android:background="@null"
+                        android:text="@string/step"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:padding="3dp"
+                        android:layout_toRightOf="@+id/activitytarget_steps"/>
+                    <ToggleButton
+                        android:id="@+id/activitytarget_toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/toggle_selection"
+                        android:text="ToggleButton"
+                        android:textOff=""
+                        android:textOn=""
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/rel6"
+                android:background="@color/black" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/intervention_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view6">
+
+                <TextView
+                    android:id="@+id/header3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e7e8e9"
+                    android:padding="10dp"
+                    android:text="@string/My_Dashboard"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/rel8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header3"
+                    android:background="@null"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/timetillfast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Time_till_fast"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ToggleButton
+                        android:id="@+id/timetillfast_toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/toggle_selection"
+                        android:text="ToggleButton"
+                        android:textOff=""
+                        android:textOn=""
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/rel8"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:id="@+id/rel9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view8"
+                    android:background="@null"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/timesincefood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Time_since_food"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ToggleButton
+                        android:id="@+id/timesincefood_toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/toggle_selection"
+                        android:text="ToggleButton"
+                        android:textOff=""
+                        android:textOn=""
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/rel9"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:id="@+id/rel10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view9"
+                    android:background="@null"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/daysexercise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Days_exercised"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ToggleButton
+                        android:id="@+id/daysexercise_toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/toggle_selection"
+                        android:text="ToggleButton"
+                        android:textOff=""
+                        android:textOn=""
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/rel10"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:id="@+id/rel11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view10"
+                    android:background="@null"
+                    android:padding="10dp">
+
+                    <RelativeLayout
+                        android:id="@+id/inne2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        >
+                        <TextView
+                            android:id="@+id/steps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:text="@string/step"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <ToggleButton
+                            android:id="@+id/steps_toggle"
+                            android:layout_width="50dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/toggle_selection"
+                            android:text="ToggleButton"
+                            android:textOff=""
+                            android:textOn=""
+                            android:visibility="visible" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/rel11"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:id="@+id/rel12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view11"
+                    android:background="@null"
+                    android:padding="10dp">
+
+
+                    <RelativeLayout
+                        android:id="@+id/inn1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:id="@+id/hoursofsleep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:text="@string/Hours_of_sleep"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <ToggleButton
+                            android:id="@+id/hoursofsleep_toggle"
+                            android:layout_width="50dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/toggle_selection"
+                            android:text="ToggleButton"
+                            android:textOff=""
+                            android:textOn=""
+                            android:visibility="visible" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/inn2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inn1"
+                        android:layout_marginTop="15dp"
+                        >
+                        <TextView
+                            android:id="@+id/displaymedicine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:text="@string/Display_medicine_name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <ToggleButton
+                            android:id="@+id/displaymedicine_toggle"
+                            android:layout_width="50dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/toggle_selection"
+                            android:text="ToggleButton"
+                            android:textOff=""
+                            android:textOn=""
+                            android:visibility="visible" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/rel12"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:id="@+id/pedingrel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view12"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp">
+
+
+                    <RelativeLayout
+                        android:id="@+id/pending_inn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:id="@+id/pending_items"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:text="@string/Pending_Items_name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/sync_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pedingrel"
+                    android:background="#e7e8e9"
+                    android:padding="10dp"
+                    android:text="@string/Synchronize_Data"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/food_sync_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sync_header"
+                    android:background="@null"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/food_sync"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Food_Data"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/food_sync_notify"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/tick_selectweek"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+                <View
+                    android:id="@+id/view13"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/food_sync_rel"
+                    android:background="@color/black" />
+                <RelativeLayout
+                    android:id="@+id/sleep_sync_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view13"
+                    android:background="@null"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/sleep_sync"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Sleep_Exercise_Data"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/sleep_sync_notify"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/tick_selectweek"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+                <View
+                    android:id="@+id/view14"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/sleep_sync_rel"
+                    android:background="@color/black" />
+                <RelativeLayout
+                    android:id="@+id/health_sync_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view14"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:layout_marginBottom="70dp">
+
+                    <TextView
+                        android:id="@+id/health_sync"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/Health_Data"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/health_sync_notify"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/tick_selectweek"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        ></RelativeLayout>
+    <include
+        layout="@layout/tabar_layout"
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

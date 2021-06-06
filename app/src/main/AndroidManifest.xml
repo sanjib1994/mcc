@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.salk.mycircadianclock">
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" /> <!-- new added permissions for custom camera -->
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <application
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <receiver
+            android:name=".settings.local_notification.LocalNotificationReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".settings.local_notification.ReminderNotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.LuncherActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".history.history_health.HistoryHealthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".history.history_intake.HistoryIntakeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pending_item.PendingItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.InterVentionSettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".camera.CustomCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".health_vitals.LogHealthDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".exercise.LogExerciseDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sleep.LogSleepDataActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TutorialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".food.FoodSendActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.BaseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".history.history_activity.ActivityHistory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".survey.SurveyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.contact.ContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.tips.TipsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.faq.FaqActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.how_to_videos.HowToVideosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.getting_strated.GettingStartedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".information.InfoMainActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".activityrecognizer.DetectedActivitiesIntentService"
+            android:exported="false" />
+        <service android:name=".activityrecognizer.BackgroundDetectedActivitiesService" />
+    </application>
+
+</manifest>

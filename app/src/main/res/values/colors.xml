@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#444444</color>
+    <color name="list_background_pressed">#555D6D</color>
+    <color name="list_divider">#ffffff</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <!-- <color name="Camera_bg">#4d5b76</color> -->
+    <color name="sub_camera_bg">#444444</color>
+    <color name="Green">#21C064</color>
+    <color name="Red">#FC5353</color>
+    <color name="btn_normal">#0070f0</color>
+    <color name="btn_pressed">#0070f0</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#444444</color>
+    <color name="sub_header">#8A888A</color>
+    <color name="white_devider">#A0A0A0</color>
+    <color name="Orange">#ff6600</color>
+    <color name="cement">#01628c</color>
+    <color name="dark_cement">#555555</color>
+    <color name="Camera_bg">#01628c</color>
+    <color name="Grey">#B4B4B4</color>
+    <color name="Cyan">#4BC0E8</color>
+    <color name="dark_blue">#0D1845</color>
+    <color name="highlight">#4C8FFD</color>
+    <color name="highlightblack">#333333</color>
+    <color name="buttondisable">#3C8B5D</color>
+    <color name="sliding_drawer_bg">#061F3C</color>
+    <color name="disable_cancel">#84363F</color>
+
+    <color name = "deepGreen">#2F8657</color>
+
+    <drawable name="selected">#FF00FF</drawable>
+    <color name="DarkActionBarColor">#2b518f</color>
+    <color name="DarkActionBarColor1">#ffffff</color>
+    <color name="food_bg">#d1d2d4</color>
+    <color name="bev_bg">#bdbec0</color>
+    <color name="water_bg">#a7a9ac</color>
+    <color name="med_bg">#939598</color>
+    <color name="excersize_bg">#007168</color>
+    <color name="chart_filter_bg">#a11437</color>
+    <color name="list_filter_bg">#cdebe6</color>
+    <color name="health_bg">#b0deeb</color>
+
+    <color name="dark_gray">#333333</color>
+    <color name="light_gray">#AFFFFFFF</color>
+    <color name="control_background">#cc4285f4</color>
+    <color name="view_pager_dots_colour">#2e1366</color>
+
+</resources>

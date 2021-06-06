@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogmain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@null">
+
+     <TextView 
+         android:id="@+id/headertop"
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:paddingTop="10dp"
+         android:paddingBottom="10dp"
+         android:text="Select Date Range"
+         android:gravity="center_horizontal"
+         android:textColor="@color/white"
+         android:textSize="17dp"
+         android:background="@color/highlight"
+         />
+     
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_above="@+id/cancelbuttonfordata"
+        android:layout_below="@+id/headertop"
+        android:dividerHeight="1dp" >
+    </androidx.recyclerview.widget.RecyclerView>
+	<Button
+        android:id="@+id/cancelbuttonfordata"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Red"
+         >
+    </Button>
+</RelativeLayout>

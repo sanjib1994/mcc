@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressWheel="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.salk.mycircadianclock.activity.BaseActivity">
+
+    <ScrollView
+        android:id="@+id/layoutMiddle"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/resent_taken_overlay"
+                android:background="#000000"
+                android:id="@+id/rel_texture">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:id="@+id/text_allow_permission"
+                    android:text="You can take picture from camera after allow all permissions. Click on camera icon to allow permissions."/>
+                <com.salk.mycircadianclock.camera.SquareCameraPreview
+                    android:id="@+id/texture"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="match_parent" />
+                <Button
+                    android:id="@+id/picture"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/camera_capture" />
+
+                <ImageView
+                    android:id="@+id/info_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/info_guide" />
+
+                <RelativeLayout
+                    android:id="@+id/servey_lay"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/tag_later_count_background">
+
+                    <TextView
+                        android:id="@+id/servey_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0"
+                        android:textColor="#ffffff"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tag_later_lay"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/servey_count_background">
+                    <TextView
+                        android:id="@+id/tag_later_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0"
+                        android:textColor="#ffffff"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/flash"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_below="@+id/tag_later_lay"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/flash_auto"/>
+
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/resent_taken_overlay"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/one_day_feedo_lay"
+                android:layout_width="match_parent"
+                android:layout_height="68dp">
+
+                <TextView
+                    android:id="@+id/notstartedyet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/Start_taking_pictures"
+                    android:visibility="gone" />
+
+                <WebView
+                    android:id="@+id/onedayfeedo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/baseline_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/one_day_feedo_lay"
+                android:visibility="invisible">
+
+                <ProgressBar
+                    android:id="@+id/baseline_progressBar"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/baseline_time_line"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:minWidth="250dp"
+                    android:minHeight="7dp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/green_progress" />
+
+                <TextView
+                    android:id="@+id/baseline_time_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/day_baseline_period"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/baseline_time_line_into"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/baseline_progressBar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/During_this_time_please"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/baseline_layout_not_started"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/one_day_feedo_lay"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/baseline_time_line_not_started"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/Please_send_food_to_start"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/one_day_feedo_lay"
+                android:fillViewport="true"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/label1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:id="@+id/relativelayout1"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_weight="1.4"
+                            android:background="#f3f3f4"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:id="@+id/images"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/circle_xxl" />
+
+                            <TextView
+                                android:id="@+id/last_taken_food"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/images"
+                                android:text="@string/min_since_last_food" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relativelayout2"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.6"
+                            android:background="#f3f3f4"
+                            android:padding="5dp"
+                            android:visibility="visible">
+
+                            <ProgressBar
+                                android:id="@+id/fasting_progressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/circle_shape"
+                                android:indeterminate="false"
+                                android:max="24"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/circular_progress_bar" />
+
+                            <TextView
+                                android:id="@+id/fastingtarget"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/fasting_progressBar"
+                                android:text="@string/fasting_target" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relativelayout11"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_weight="3"
+                            android:background="#f3f3f4"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:visibility="gone" >
+
+                            <ImageView
+                                android:id="@+id/images1"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/circle_xxl" />
+
+                            <TextView
+                                android:id="@+id/last_taken_food1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/images1"
+                                android:text="@string/min_since_last_food" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relativelayout22"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="3"
+                            android:background="#f3f3f4"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:visibility="gone" >
+
+                            <ProgressBar
+                                android:id="@+id/fasting_progressBar2"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/circle_shape"
+                                android:indeterminate="false"
+                                android:max="24"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/circular_progress_bar" />
+
+                            <TextView
+                                android:id="@+id/fastingtarget2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/fasting_progressBar2"
+                                android:text="@string/fasting_target" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/label3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/label2"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativelayout4"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:background="#f3f3f4"
+                            android:padding="10dp"
+                            android:visibility="visible">
+
+                            <ProgressBar
+                                android:id="@+id/step_statusprogressBar"
+                                style="@android:style/Widget.ProgressBar.Horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/step_status"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:minWidth="250dp"
+                                android:minHeight="7dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/green_progress" />
+
+                            <TextView
+                                android:id="@+id/step_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/zero_steps" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rel_gfit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#f3f3f4"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:text="Once you will allow google fit permission, you can see your steps count here. Click on this to allow permission." />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/label2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/label1"
+                        android:layout_marginTop="5dp"
+                        android:background="#f3f3f4"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="visible">
+
+                        <ProgressBar
+                            android:id="@+id/excercise_minprogressBar"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/excercise_status"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:indeterminate="false"
+                            android:max="7"
+                            android:minWidth="250dp"
+                            android:minHeight="7dp"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/yellow_progress" />
+
+                        <TextView
+                            android:id="@+id/excercise_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/You_have_excercised" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/label222"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/label3"
+                        android:layout_marginTop="5dp"
+                        android:background="#f3f3f4"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="visible">
+
+                        <ProgressBar
+                            android:id="@+id/intervention_minprogressBar"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/intervention_status"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:indeterminate="false"
+                            android:max="14"
+                            android:minWidth="250dp"
+                            android:minHeight="7dp"
+                            android:progress="2"
+                            android:progressDrawable="@drawable/blue_progress" />
+
+                        <TextView
+                            android:id="@+id/intervention_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/You_have_completed" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/label4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/label222"
+                        android:layout_marginTop="5dp"
+                        android:background="#f3f3f4"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="visible"
+                        android:layout_marginBottom="70dp">
+
+                        <ImageView
+                            android:id="@+id/images11"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@mipmap/sleep_new" />
+
+                        <TextView
+                            android:id="@+id/sleep_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/images11"
+                            android:text="@string/sleep_last_night" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></RelativeLayout>
+    <include
+        android:id="@+id/tab_bar"
+        layout="@layout/tabar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

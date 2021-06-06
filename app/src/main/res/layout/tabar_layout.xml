@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Green"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#007168"
+                >
+                <ImageView
+                    android:id="@+id/setting_img"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/setting_icon"/>
+                <ImageView
+                    android:id="@+id/home_img"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/home_icon_new"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:layout_toRightOf="@+id/setting_img"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#007ba1"
+                >
+                <ImageView
+                    android:id="@+id/faq_img"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_toLeftOf="@+id/info_img"
+                    android:src="@mipmap/faq_icon_new"
+                    android:scaleType="fitXY"
+                    android:layout_marginRight="10dp"/>
+                <ImageView
+                    android:id="@+id/info_img"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/info_icon_new"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/center_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@mipmap/menu_icon"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

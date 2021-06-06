@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="theme.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="feedogram.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="jquery.js" type="text/javascript"></script> 
+	<script src="jquery.tooltipster.min.js" type="text/javascript"></script>
+	<style>
+	    .time-show-320{position:relative;left:0;width:100%;top:20px;margin-bottom:20px;}
+	    .time-show-big-screen{position:relative;left:0;width:100%;top:26px;margin-bottom:26px;}
+	    .show-date{font-size: 12px;font-weight: bold;height: 15px;left: -12px;position: absolute;top: -9px;width: 100px;display:block}
+	</style>
+  </head>
+<body>
+<div id="totalFeedogramDiv"  style="padding: 10px;margin-top:10px;margin-left:10px;margin-right:10px;">
+    <div>
+        <div class="row"  id="feedogram_data">
+            <div class="col-md-12">
+                <div class="feedogram_content" id="feedogram_content_height">
+                    <div class="target-box"></div>
+                    <div class="con-1 night night_to_morning" id="night_to_morning_height">
+                        <div class="time-for six-am">6</div>
+                    </div>
+                    <div class="day_time morning_to_evening" id="morning_to_evening_height">
+                        <div class="time-for noon">12</div>
+                        <div class="time-for six-pm">18</div>
+                    </div>
+                    <div class="con-2 night evening_to_night" id="evening_to_night_height">
+                        <div class="time-for midnight">24</div>
+                    </div>
+                    <div id="feedogramData"></div>
+                    <div class="clear"></div>
+                    
+                    <div class="clear" style="height:20px"></div>
+                    
+                    <div class="blue-line-bdr">
+                        <span class="r-time target-duration"></span>
+                        <span class="target_start_time start-time"></span>
+                        <span class="target_end_time end-time"></span>
+                        <!--<span class="w-time">Target</span>-->
+                    </div>
+                    <div class="clear" style="height:20px"></div>
+                    <div class="green-line-bdr">
+                        <span class="weekday_start_time start-time"></span>
+                        <span class="weekday_end_time end-time"></span>
+
+                        <span class="r-time weekday_duration"></span>
+                        <!--<span class="w-time">Weekday</span>-->
+                    </div>
+                    <div class="clear" style="height:20px"></div>
+                    <div class="orange-line-bdr">
+                        <span class="weekend_start_time start-time"></span>
+                        <span class="weekend_end_time end-time"></span>
+
+                        <span class="r-time weekend_duration"></span>
+                        <!--<span class="w-time">Weekend</span>-->
+                    </div>
+                    <div class="clear" style="height:30px;"></div>
+                </div><!-- end of feedogram_content -->
+                
+            </div><!-- end of col-md-12 -->
+        </div><!-- end of row -->
+    </div>
+</div>
+
+<script>
+    
+    
+    function feedogramDisplay(jsonDataString, jsonWeekdayString, jsonWeekendString, feedogram_content_height, night_to_morning_height, morning_to_evening_height, evening_to_night_height, weekday_margin_left, weekday_width, weekday_duration, weekday_start_time, weekday_end_time, weekend_start_time, weekend_end_time, weekend_margin_left, weekend_width, weekend_duration, eating_duration, fasting_duration, social_jetlag, eating_frequency, target_box_border, target_box_left, target_box_width, target_duration, target_start_time, target_end_time, screen_width){
+	
+        //alert(1);
+        $(document).ready(function() {
+                          jsonDataString=JSON.parse(jsonDataString);
+                          screen_width=parseInt(screen_width);
+                          if(jsonDataString.length > 0){
+                          //alert(JSON.stringify(jsonDataString));
+                          if(screen_width > 320)
+                            screen_width="big-screen"
+                          else
+                            screen_width=320
+                          //alert(feedogram_content_height)
+                          $(".con-1").addClass("con-1-"+screen_width);
+                          $(".con-2").addClass("con-2-"+screen_width);
+                          $(".day_time").addClass("day_time-"+screen_width);
+                          $(".feedogram_content").addClass("feedogram_content-"+screen_width);
+                          $(".six-am").addClass("six-am-"+screen_width);
+                          $(".noon").addClass("noon-"+screen_width);
+                          $(".six-pm").addClass("six-pm-"+screen_width);
+                          $(".midnight").addClass("midnight-"+screen_width);
+                          //$(".time-show").addClass("time-show-"+screen_width);
+                          $(".blue-line-bdr").addClass("blue-line-bdr-"+screen_width);
+                          $(".green-line-bdr").addClass("green-line-bdr-"+screen_width);
+                          $(".orange-line-bdr").addClass("orange-line-bdr-"+screen_width);
+                          $(".start-time").addClass("start-time-"+screen_width);
+                          $(".end-time").addClass("end-time-"+screen_width);
+                          $("#feedogram_content_height").height(feedogram_content_height);
+                          $("#night_to_morning_height").height(night_to_morning_height);
+                          $("#morning_to_evening_height").height(morning_to_evening_height);
+                          $("#evening_to_night_height").height(evening_to_night_height);
+                          $("#eating_duration").html(eating_duration);
+                          $("#fasting_duration").html(fasting_duration);
+                          $("#social_jetlag").html(social_jetlag);
+                          $("#eating_frequency").html(eating_frequency);
+                          $(".target-box").css({
+                                               'border' : target_box_border,
+                                               'width' : target_box_width,
+                                               'left' : target_box_left,
+                                               'height': feedogram_content_height
+                                               });
+                          //alert(JSON.stringify(jsonWeekdayString));
+                          
+                          var weekdayDataString = "";
+                          var weekendDataString = "";
+                          
+                          //WEEKDAY AGG FUN
+                         // jsonWeekdayString = JSON.parse(jsonWeekdayString);
+                          for(var i=0; i<jsonWeekdayString.length; i++){
+                          weekdayDataString += "<div class='each' style='left: "+jsonWeekdayString[i].showtooltip_left+";' ></div>"
+                          }
+                          $(".weekday").html(weekdayDataString);
+                          
+                          if(parseFloat(weekday_duration)>0.0){
+                          $("#weekdayAggDuration").show();
+                          $("#weekday_margin_left_width").css("margin-left", weekday_margin_left).css("width", weekday_width);
+                          $("#weekday_duration").html(weekday_duration);
+                          
+                          }
+                          
+                          //alert(JSON.stringify(jsonWeekendString.length));
+                          //WEEKEND AGG FUN
+                          //jsonWeekendString = JSON.parse(jsonWeekendString);
+                          if(jsonWeekendString.length > 0){
+                          for(var i=0; i<jsonWeekendString.length; i++){
+                          if(jsonWeekendString[i].showtooltip_left != null){
+                          weekendDataString += "<div class='each' style='border-left: 3px solid #FF0000;left: "+jsonWeekendString[i].showtooltip_left+";' ></div>"
+                          }
+                          }
+                          
+                          $(".weekend").html(weekendDataString);
+                          }
+                          if(parseFloat(weekend_duration)>0.0){
+                          $("#weekendAggDuration").show();
+                          $("#weekend_margin_left_width").css("margin-left", weekend_margin_left).css("width", weekend_width);
+                          $("#weekend_duration").html(weekend_duration);
+                          
+                          }
+                          
+                          
+                          
+                          //FEEDOGRAM DATA
+                          var toShowFeedgramMarks = "";
+                          //alert("json data length="+jsonDataString.length);
+                          for(var i=0; i<jsonDataString.length; i++){
+                          
+                          toShowFeedgramMarks += "<div class='time-show-"+screen_width+" "+jsonDataString[i].time_show_class+"'><div class='show-date' style='color: "+jsonDataString[i].show_date_color+"'>"+jsonDataString[i].show_date_value+"</div>";
+                          //alert(JSON.stringify(toShowFeedgramMarks));
+                          if(jsonDataString[i].values_for_food_mark != null){
+                          var marks = jsonDataString[i].values_for_food_mark;
+                          var random_tooltip = []
+                          if(marks.length>0){
+                          for(var j=0; j<marks.length; j++){
+                          left_value = marks[j].showtooltip_left.split(".")[0]
+                          toShowFeedgramMarks += "<div class='each showtooltip' style='border-left: 2px solid "+marks[j].showtooltip_border+" ;left: "+marks[j].showtooltip_left+"' rel='tooltip' foodstuff_id= '' eating_time_id='"+marks[j].showtooltip_eating_time_id+"' onclick='tooltipDisplay("+marks[j].showtooltip_eating_time_id+")'><div class='img-tooltip' id='icon_tooltip_"+left_value+"'  style='display:none'><div class='arrow_box'></div>"
+                          //alert(marks[j].image_url);
+                          //alert(marks[j].image_url == "");
+                          //alert(marks[j].image_url == "nil");
+                          //alert(marks[j].image_url == null);
+                          
+                          if(marks[j].image_url == null){
+                          
+                          
+                          toShowFeedgramMarks += "<span>"+marks[j].image_replacement+"</span>"
+                          
+                          }else{
+                          
+                          toShowFeedgramMarks += "<img src='"+marks[j].image_url+"' height='60' width='60'>"
+                          
+                          }
+                          toShowFeedgramMarks+="</div></div>"
+                          random_tooltip.push(left_value)
+                          //alert(toShowFeedgramMarks);
+                          }
+                          
+                          toShowFeedgramMarks+="<div class='highlight_blue' style='left:"+jsonDataString[i].feedogram_box_start+";width:"+jsonDataString[i].feedogram_box_width+"'></div>"
+                          }
+                          }
+                          toShowFeedgramMarks +="</div>"
+                          }
+                          //alert(JSON.stringify(toShowFeedgramMarks));
+                          $("#feedogramData").html(toShowFeedgramMarks);
+                          //alert(target_box_width);
+                          if(target_box_width != "" && target_box_left != "" && target_box_width!="0px"){
+                          $(".blue-line-bdr").css({
+                                                  'width' : target_box_width,
+                                                  'left' : target_box_left
+                                                  });
+                          
+                            $(".target-duration").html("Target "+target_duration);
+                            $(".target_start_time").html(target_start_time);
+                            $(".target_end_time").html(target_end_time);
+                          
+                          }else{
+                          $(".blue-line-bdr").remove()
+                          }
+                          if(weekday_width != "" && weekday_margin_left != ""){
+                          $(".green-line-bdr").css({
+                                                   'width' : weekday_width,
+                                                   'left' : weekday_margin_left
+                                                   });
+                          
+                          $(".weekday_start_time").html(weekday_start_time);
+                          $(".weekday_end_time").html(weekday_end_time);
+                          $(".weekday_duration").html("Weekday "+weekday_duration);
+                          }else{
+                          $(".green-line-bdr").remove()
+                          }
+                          
+                          if(weekend_width != "" && weekend_margin_left != ""){
+                          $(".orange-line-bdr").css({
+                                                    'width' : weekend_width,
+                                                    'left' : weekend_margin_left
+                                                    });
+                          $(".weekend_start_time").html(weekend_start_time);
+                          $(".weekend_end_time").html(weekend_end_time);
+                          $(".weekend_duration").html("Weekend "+weekend_duration);
+
+                          }else{
+                          $(".orange-line-bdr").remove()
+                          }
+                          //alert(target_box_left);
+                          
+                          }else{
+                          $("#totalFeedogramDiv").html("<div style='text-align:center;'> No data available to generate the feedogram.</div><div class='clearfix'></div>")
+                          }
+                          //alert(random_tooltip);
+                          //alert($.unique(random_tooltip));
+                          display_random_tooltip($.unique(random_tooltip));
+                          
+                          });
+                          
+    }
+
+
+//$( ".showtooltip" ).on( "click", function() {
+//                           alert( 23 );
+//                           });
+
+function tooltipDisplay(eating_time_id){
+    //alert("Eating id = "+eating_time_id)
+     Android.Feedogram(eating_time_id);
+   // var myAppName = 'feedogramappname';
+    //var myActionType = 'feedogramjavascriptactiontype';
+   // var myActionParameters = eating_time_id; // put extra info into a dict if you need it
+    // (separating the actionType from parameters makes it easier to parse in ObjC.)
+   // var jsonString = (JSON.stringify(myActionParameters));
+   // var escapedJsonParameters = escape(jsonString);
+   // var url = myAppName + '://' + myActionType + "#" + escapedJsonParameters;
+   
+   // document.location.href = url;
+}
+function display_random_tooltip(marks){
+    //alert(marks)
+    var randommark = marks[ (Math.floor(Math.random() * marks.length)) ]
+    //alert(randommark)
+    //alert("#icon_tooltip_"+randommark);
+    //$("#icon_tooltip_"+randommark).show();
+    //$("#icon_tooltip_"+randommark).fadeIn(600).delay(1000).fadeOut(600, function(){
+    //                                                              display_random_tooltip(marks);
+    //                                                              });
+}
+
+
+    </script>
+<div>
+ </body>
+</html>
+    

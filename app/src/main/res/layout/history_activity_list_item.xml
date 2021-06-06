@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rel_main"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/parentview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/list_time_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp" >
+
+            <RelativeLayout
+                android:id="@+id/hour_layout"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <TextView
+                    android:id="@+id/list_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="M 8/78"
+                    android:textSize="12dp"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/list_time"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/favorite_icon"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="60dp"
+                android:layout_toRightOf="@+id/hour_layout"
+                android:background="#0aafb6" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/view_6"
+            android:layout_toRightOf="@+id/list_time_layout">
+
+
+            <LinearLayout
+                android:id="@+id/alltab_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="#0aafb6"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:id="@+id/lay1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/sleepview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_above="@+id/sleepview_occurance"
+                        android:gravity="center"
+                        android:text="6.4 hrs"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/sleepview_occurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/sleepview_statusprogressBar"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="(0)"
+                        android:visibility="visible"
+                        android:textColor="@color/black" />
+                    <ProgressBar
+                        android:id="@+id/sleepview_statusprogressBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/step_status"
+                        android:layout_marginTop="5dp"
+                        android:indeterminate="false"
+                        android:max="24"
+                        android:minHeight="7dp"
+                        android:minWidth="250dp"
+                        android:progress="7"
+                        android:progressDrawable="@drawable/sleep_progress"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/lay2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/exerciseview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_above="@+id/exerciseview_occurance"
+                        android:gravity="center"
+                        android:text="30 min"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/exerciseview_occurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/exercise_statusprogressBar"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="(0)"
+                        android:visibility="visible"
+                        android:textColor="@color/black" />
+                    <ProgressBar
+                        android:id="@+id/exercise_statusprogressBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/step_status"
+                        android:layout_marginTop="5dp"
+                        android:indeterminate="false"
+                        android:max="24"
+                        android:minHeight="7dp"
+                        android:minWidth="250dp"
+                        android:progress="7"
+                        android:progressDrawable="@drawable/exercise_progress"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lay3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/activeview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_above="@+id/activeview_occurance"
+                        android:gravity="center"
+                        android:text="2 hrs"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/activeview_occurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/active_statusprogressBar"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="(0)"
+                        android:visibility="gone"
+                        android:textColor="@color/black" />
+                    <ProgressBar
+                        android:id="@+id/active_statusprogressBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:minHeight="7dp"
+                        android:minWidth="250dp"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/active_progress"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_4"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:visibility="gone"
+        android:layout_below="@+id/parentview"
+        android:background="#0aafb6" />
+
+</RelativeLayout>

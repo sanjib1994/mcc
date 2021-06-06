@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/Grey" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="#5792C5" >
+
+        <TextView
+            android:id="@+id/cancelbuttonslpwh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="@string/Cancel"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/titleslw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:text="" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/donebuttonslpwh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="5dp"
+            android:text="@string/Done"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@color/white"
+        android:layout_centerHorizontal="true" >
+
+        <RelativeLayout
+            android:id="@+id/wheel_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <com.salk.mycircadianclock.wheel.WheelView
+                android:id="@+id/hours"
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:paddingRight="5sp" />
+
+            <com.salk.mycircadianclock.wheel.WheelView
+                android:id="@+id/minutes"
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/hours"
+                android:paddingLeft="5sp" />
+
+            
+            <com.salk.mycircadianclock.wheel.WheelView
+                android:id="@+id/ampmwheel"
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/minutes"
+                android:paddingLeft="5sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

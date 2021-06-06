@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top_lay"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#503056"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back"
+            android:id="@+id/image_back"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Survey"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/Mainlyout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_lay"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/text_survey_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What you expect to see at night?"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycle_answers"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rel_survey_question"
+        android:background="#4971C0"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/testhd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="This short survey will take a couple of minutes."
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/testsubhd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/testhd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:text="This survey is about this study."
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/button_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:background="#503056"
+        android:visibility="visible" >
+
+        <com.salk.mycircadianclock.Utility.FancyButton
+            android:id="@+id/exitQusbutton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:padding="13dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_defaultColor="#FFFFFF"
+            fancy:fb_focusColor="@android:color/darker_gray"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="EXIT"
+            fancy:fb_textColor="#fca520"
+            fancy:fb_textSize="22dp" />
+
+        <com.salk.mycircadianclock.Utility.FancyButton
+            android:id="@+id/nextQusbutton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="13dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:layout_centerVertical="true"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:visibility="visible"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_defaultColor="#FFFFFF"
+            fancy:fb_focusColor="@android:color/darker_gray"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="30dp"
+            android:layout_marginRight="10dp"
+            fancy:fb_text="NEXT"
+            fancy:fb_textColor="#cc1626"
+            fancy:fb_textSize="22dp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

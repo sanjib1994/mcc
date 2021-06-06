@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<style type="text/css">
+            .mholder{position: absolute;top: 12px;width: 101%;}
+            .chat-container > .header-row {/* background: #337198; */background: url(header-bgw.png) no-repeat 0px 0px;background-size: 100% 100%;width: 100%;height: auto;position: fixed;height: auto;top: 0;left: 0;z-index: 9;}
+            .mholder .mins img:first-child{top:-3px}
+            /* .mholder .mins img:nth-child(2){top:17px}
+            .mholder .mins img:nth-child(3){top:38px} */
+            .cov{ background: #D04E3D;}
+            .mins,.minst {float: left;width: 1.672%;position:relative;height: 23px;/* margin-right: 0.001px; */
+            }
+            .minst{width: 8.3%;    height: 100%;}
+            .mholder.medi { position: absolute; top: 9px;}
+            .mholder.medi .cov { background: #F8B34F;}
+            .mholder.waters { position: absolute; top: 33px;}
+            .mholder.waters .cov{background:#654C6B;}
+            .mytarg{background: url(cir.png) repeat-y center; background-size:2px;width: 6px;position:relative;background-size: 8px;}
+            /*.brdr{border-right:1px solid #A8DBE9;}*/
+            .targ_holder{position: absolute;width: 100%;height: 100%;}
+            .mybg{background-color:rgba(228,234,213,0.4);width: 7.2%}
+            .mark{position:absolute;width:12px;}
+            .target-plot{margin:20px auto;}
+            .target-plot > div > div.con{width:70%;margin:0px auto;padding: 10px;box-sizing: border-box;border: 1px solid #777;background: #a7c951;}
+            .target-plot p{display:inline-block;padding: 0px;margin: 0px;}
+            .target-plot p.lft{float:left}
+            .target-plot p.rgt{float:right}
+            .cb{clear:both}
+            .target-plot .print-total{margin-top: 12px;margin-left: 20px;}
+		</style>
+<!--		<script type='text/javascript' src="http://stag.sigmatechservices.co.in/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>-->
+<!--        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>-->
+<!--<script type="text/javascript" src="http://www.netcu.de/templates/netcu/js/jquery.touchwipe.min.js"></script>-->
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+function feedogramData(Data) { 
+//alert(Data);
+jQuery(document).ready(function() {
+var arr_nw = [];
+var arr_dt = [];
+var arr_wk = [];
+var data_rangev = [];
+var arr_type = [];
+var act_mark_st = [];
+var act_mark_ed = [];
+var arr_act_up = [];
+var arr_act_down = [];
+var arr_act_st = [];
+var arr_act_ed = [];
+
+function empty(mixedVar) {
+    var undef
+    var key
+    var i
+    var len
+    var emptyValues = [undef, null, false, 0, '', '0']
+
+    for (i = 0, len = emptyValues.length; i < len; i++) {
+        if (mixedVar === emptyValues[i]) {
+            return true
+        }
+    }
+
+    if (typeof mixedVar === 'object') {
+        for (key in mixedVar) {
+            if (mixedVar.hasOwnProperty(key)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    return false
+}
+var my_food_obj = {};
+var myJSONObject = JSON.parse(Data);
+/*var myJSONObject = {  
+   "day_data":[  
+      {  
+         "show_date":"07/02",
+         "show_date_value":"S",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":951894,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"23:59"
+            },
+            {  
+               "showtooltip_eating_time_id":951895,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"23:59"
+            },
+            {  
+               "showtooltip_eating_time_id":951902,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"22:09"
+            },
+            {  
+               "showtooltip_eating_time_id":951762,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"22:06"
+            },
+            {  
+               "showtooltip_eating_time_id":951896,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"21:59"
+            }
+         ],
+         "total_hour_sent":"2:0"
+      },
+      {  
+         "show_date":"07/03",
+         "show_date_value":"M",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":951934,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"23:37"
+            },
+            {  
+               "showtooltip_eating_time_id":951935,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"22:38"
+            },
+            {  
+               "showtooltip_eating_time_id":952124,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"14:35"
+            },
+            {  
+               "showtooltip_eating_time_id":951900,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"12:05"
+            },
+            {  
+               "showtooltip_eating_time_id":951899,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"12:04"
+            },
+            {  
+               "showtooltip_eating_time_id":951770,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"08:37"
+            }
+         ],
+         "total_hour_sent":"15:0"
+      },
+      {  
+         "show_date":"07/04",
+         "show_date_value":"T",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":954128,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"18:09"
+            },
+            {  
+               "showtooltip_eating_time_id":951954,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"11:00"
+            },
+            {  
+               "showtooltip_eating_time_id":954285,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"09:40"
+            },
+            {  
+               "showtooltip_eating_time_id":954127,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"08:30"
+            },
+            {  
+               "showtooltip_eating_time_id":951952,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"08:00"
+            },
+            {  
+               "showtooltip_eating_time_id":954129,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"20:06"
+            },
+            {  
+               "showtooltip_eating_time_id":951951,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"06:45"
+            },
+            {  
+               "showtooltip_eating_time_id":954284,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"06:40"
+            },
+            {  
+               "showtooltip_eating_time_id":954131,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"18:09"
+            },
+            {  
+               "showtooltip_eating_time_id":954363,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"05:10"
+            },
+            {  
+               "showtooltip_eating_time_id":954367,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"05:00"
+            },
+            {  
+               "showtooltip_eating_time_id":954362,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"04:01"
+            },
+            {  
+               "showtooltip_eating_time_id":954123,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"15:59"
+            },
+            {  
+               "showtooltip_eating_time_id":954365,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"02:00"
+            },
+            {  
+               "showtooltip_eating_time_id":954366,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"02:00"
+            },
+            {  
+               "showtooltip_eating_time_id":951927,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"12:35"
+            },
+            {  
+               "showtooltip_eating_time_id":951937,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"b",
+               "time":"12:08"
+            }
+         ],
+         "total_hour_sent":"18:6"
+      },
+      {  
+         "show_date":"07/05",
+         "show_date_value":"W",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/06",
+         "show_date_value":"T",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":958316,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"m",
+               "time":"15:23"
+            },
+            {  
+               "showtooltip_eating_time_id":958318,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"w",
+               "time":"14:23"
+            },
+            {  
+               "showtooltip_eating_time_id":958319,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"13:24"
+            }
+         ],
+         "total_hour_sent":"1:59"
+      },
+      {  
+         "show_date":"07/07",
+         "show_date_value":"F",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/08",
+         "show_date_value":"S",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/09",
+         "show_date_value":"S",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/10",
+         "show_date_value":"M",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":966986,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"17:30"
+            },
+            {  
+               "showtooltip_eating_time_id":966987,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"05:30"
+            }
+         ],
+         "total_hour_sent":"12:0"
+      },
+      {  
+         "show_date":"07/11",
+         "show_date_value":"T",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/12",
+         "show_date_value":"W",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/13",
+         "show_date_value":"T",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/14",
+         "show_date_value":"F",
+         "values_for_food_mark":[  
+            {  
+               "showtooltip_eating_time_id":978410,
+               "image_url":"test",
+               "image_replacement":"test",
+               "type":"f",
+               "time":"07:00"
+            }
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/15",
+         "show_date_value":"S",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/16",
+         "show_date_value":"S",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      },
+      {  
+         "show_date":"07/17",
+         "show_date_value":"M",
+         "values_for_food_mark":[  
+
+         ],
+         "total_hour_sent":"0:0"
+      }
+   ],
+   "target_start_time":"09:00",
+   "target_end_time":"19:00",
+   "actual_start_time":"07:00",
+   "actual_end_time":"15:30"
+};*/
+
+$.each(myJSONObject, function(ind, va) {
+    if (typeof(val) == "object") {
+        $.each(val, function(i, v) {
+            my_food_obj[v.show_date] = v.values_for_food_mark;
+        });
+    }
+});
+var cons = 0;
+$.each(myJSONObject, function(index, val) {
+    if (typeof(val) == "object") {
+        $.each(val, function(i_count, i_value) {
+            if (typeof(i_value) == "object") {
+                $.each(i_value, function(i_range, i_rangle_value) {
+                    if (i_range == "total_hour_sent") {
+                        var all = arr_nw.push(i_rangle_value);
+                    }
+                    if (i_range == "show_date") {
+                        var d1 = i_rangle_value.split("/")[0]
+					    var d2 =i_rangle_value.split("/")[1]
+					    var i_rangle_value = d2+"/"+d1
+                        var alll = arr_dt.push(i_rangle_value);
+                    }
+                    if (i_range == "show_date_value") {
+                    
+                    if(i_rangle_value == "Mon")
+					{
+					  i_rangle_value = "Lun"
+					}
+					if(i_rangle_value == "Tue")
+					{
+					  i_rangle_value = "Mar"
+					}
+					if(i_rangle_value == "Wed")
+					{
+					  i_rangle_value = "Mer"
+					}
+					if(i_rangle_value == "Thu")
+					{
+					  i_rangle_value = "Jeu"
+					}
+					if(i_rangle_value == "Fri")
+					{
+					  i_rangle_value = "Ven"
+					}
+					if(i_rangle_value == "Sat")
+					{
+					  i_rangle_value = "Sam"
+					}
+					if(i_rangle_value == "Sun")
+					{
+					  i_rangle_value = "Dim"
+					}
+                        var allll = arr_wk.push(i_rangle_value);
+                    }
+                    if (i_range == "values_for_food_mark") {
+                        if (typeof(i_rangle_value) == "object" && !empty(i_rangle_value)) {
+                            $.each(i_rangle_value, function(i_key, i_val) {
+                                arr_type.push(i_val.type);
+                            });
+                        }
+                    }
+                });
+            }
+            cons++;
+        });
+    }
+});
+var cnts = myJSONObject.day_data.length;
+//alert(cnts);
+var chart_type = myJSONObject.chart_type;
+var tar_st = myJSONObject.target_start_time;
+var tar_en = myJSONObject.target_end_time;
+var tr_st = tar_st.split(":");
+var tr_en = tar_en.split(":");
+var trs_time = new Date(2016, 11, 11, tr_st[0], tr_st[1], 0);
+var tre_time = new Date(2016, 11, 11, tr_en[0], tr_en[1], 0);
+var target_start_time = trs_time.getTime();
+var target_end_time = tre_time.getTime();
+
+/* actual time format calc */
+    $.each(myJSONObject, function(index, val) {
+        //console.log(tar_space);
+    if(index === "actual_start_time"){
+    var act_st = myJSONObject.actual_start_time;
+    var act_en = myJSONObject.actual_end_time;
+    arr_act_st.push(act_st);
+    arr_act_ed.push(act_en);
+    var ac_st = act_st.split(":");
+    var ac_en = act_en.split(":");
+    var ac_st_min = 5 * Math.round( ac_st[1] / 5);
+    var ac_en_min = 5 * Math.round( ac_en[1] / 5);
+    var acs_time = new Date(2016, 11, 11, ac_st[0], ac_st_min, 0);
+    var ace_time = new Date(2016, 11, 11, ac_en[0], ac_en_min, 0);
+    var actual_start_time = acs_time.getTime(); //console.log(actual_start_time);
+    var actual_end_time = ace_time.getTime();
+    var arr_act_mark_st = act_mark_st.push(actual_start_time);
+    var arr_act_mark_ed = act_mark_ed.push(actual_end_time);
+
+    }else{
+           jQuery.noop(); 
+        }
+    });
+    //console.log(act_mark_st[0]);
+    //console.log(act_mark_ed[0]);
+    /* actual time format calc */
+
+var sss = "";
+var count = 0;
+
+for (var cn = 0; cn < cnts; cn++) {
+    var ftime = [];
+    var ftype = [];
+    var flen = myJSONObject.day_data[cn]['values_for_food_mark'].length;
+	//console.log(myJSONObject.day_data[cn]['values_for_food_mark'].length);
+
+    for (var k = 0; k < flen; k++) { //alert(123);
+        var ntm = myJSONObject.day_data[cn]['values_for_food_mark'][k]['time'].split(":");
+		//console.log(myJSONObject.day_data[cn]['values_for_food_mark'][k]['time'].split(":"));
+        var ntm_time = new Date(2016, 11, 11, ntm[0], ntm[1], 0);
+        var food_ntm_time = ntm_time.getTime();
+        ftime.push(food_ntm_time);
+        ftype.push(myJSONObject.day_data[cn]['values_for_food_mark'][k]['type']);
+    }
+    var fst = arr_dt[cn].split("/");
+    var fds_time = new Date(2016, 11, 11, fst[0], fst[1], 0);
+    var food_start_time = fds_time.getTime();
+
+
+    var food = "";
+    var water = "";
+    var medicine = "";
+    if (cn % 2 == 0) {
+        var str = "bg-row1";
+    } else {
+        var str = "bg-row2";
+    }
+
+    var DateObj = new Date(arr_dt[cn]);
+    var day = DateObj.getDate();
+    var mnth = ("0" + (DateObj.getMonth() + 1)).slice(-2);
+    var date = mnth+"/"+day;
+   
+   sss = sss + '<section class="chat-line-row ' + str + '"><aside><h4>' + arr_wk[cn].substring(0, 3) + ' ' + date + '<br>' + arr_nw[cn] + '<br>' + '</h4></aside><aside class="fff" style="position:relative;"><div class="targ_holder">';
+    
+    var path = myJSONObject.day_data[cn]['values_for_food_mark'];
+    if ($.isEmptyObject({
+            path
+        }) == false) {}
+    for (var i = 6; i < 18; i++) {
+        sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j += 5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time ) {
+                var tstr = "mytarg";
+            } else {
+                var tstr = "";
+            }
+            if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                var bstr = " mybg";
+            } else {
+                var bstr = "";
+            }
+             /* Target section plotting */
+                if (c_time == target_start_time) {
+                    var tar_up = "tar_up ";
+                    //var allListElements = $( "div.cnt-blk" );
+                } else {
+                    var tar_up = "";
+                }
+                if (c_time == target_end_time) {
+                    var tar_down = " tar_down";
+                } else {
+                    var tar_down = "";
+                }
+                /* Target section plotting */
+
+                /* Actual section plotting */
+                $.each(myJSONObject, function(index, val) {
+                //console.log(tar_space);
+                if(index === "actual_start_time"){
+                if (c_time == act_mark_st[0]) {
+                    var act_up = "act_up ";
+                    arr_act_up.push(act_up);
+                } else {
+                    var act_up = "";
+                    arr_act_up.push(act_up);
+                }
+                if (c_time == act_mark_ed[0]) {
+                    var act_down = " act_down";
+                    arr_act_down.push(act_down);
+                } else {
+                    var act_down = " ";
+                    arr_act_down.push(act_down);
+                }
+                }else{
+                       jQuery.noop();
+                    }
+                });
+                /* Actual section plotting */
+                
+                sss = sss + '<div class="minst ' + arr_act_up[arr_act_up.indexOf("act_up ")] + " " + tar_up + tstr + bstr + tar_down + " " + arr_act_down[arr_act_down.indexOf(" act_down")] + '" title="' + i + ':' + j + '"></div>';
+        }
+        sss = sss + '</div>';
+    }
+    for (var i = 18; i < 24; i++) {
+        sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j += 5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time ) {
+                var tstr = "mytarg";
+            } else {
+                var tstr = "";
+            }
+            if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                var bstr = " mybg";
+            } else {
+                var bstr = "";
+            }
+             /* Target section plotting */
+                if (c_time == target_start_time) {
+                    var tar_up = "tar_up ";
+                    //var allListElements = $( "div.cnt-blk" );
+                } else {
+                    var tar_up = "";
+                }
+                if (c_time == target_end_time) {
+                    var tar_down = " tar_down";
+                } else {
+                    var tar_down = "";
+                }
+                /* Target section plotting */
+
+                /* Actual section plotting */
+                $.each(myJSONObject, function(index, val) {
+                //console.log(tar_space);
+                if(index === "actual_start_time"){
+                if (c_time == act_mark_st[0]) {
+                    var act_up = "act_up ";
+                    arr_act_up.push(act_up);
+                } else {
+                    var act_up = "";
+                    arr_act_up.push(act_up);
+                }
+                if (c_time == act_mark_ed[0]) {
+                    var act_down = " act_down";
+                    arr_act_down.push(act_down);
+                } else {
+                    var act_down = " ";
+                    arr_act_down.push(act_down);
+                }
+                }else{
+                       jQuery.noop();
+                    }
+                });
+                /* Actual section plotting */
+
+                sss = sss + '<div class="minst ' + arr_act_up[arr_act_up.indexOf("act_up ")] + " " + tar_up + tstr + bstr + tar_down + " " + arr_act_down[arr_act_down.indexOf(" act_down")] + '" title="' + i + ':' + j + '"></div>';
+        }
+        sss = sss + '</div>';
+    }
+    for (var i = 0; i < 6; i++) {
+        sss = sss + '<div class="cnt-blk blocks">';
+        for (var j = 0; j < 60; j += 5) {
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            if ((c_time == target_start_time || c_time == target_end_time) && target_start_time != target_end_time ) {
+                var tstr = "mytarg";
+            } else {
+                var tstr = "";
+            }
+            if (c_time >= target_start_time && c_time <= target_end_time && target_start_time != target_end_time) {
+                var bstr = " mybg";
+            } else {
+                var bstr = "";
+            }
+             /* Target section plotting */
+                if (c_time == target_start_time) {
+                    var tar_up = "tar_up ";
+                    //var allListElements = $( "div.cnt-blk" );
+                } else {
+                    var tar_up = "";
+                }
+                if (c_time == target_end_time) {
+                    var tar_down = " tar_down";
+                } else {
+                    var tar_down = "";
+                }
+                /* Target section plotting */
+
+                /* Actual section plotting */
+                $.each(myJSONObject, function(index, val) {
+                //console.log(tar_space);
+                if(index === "actual_start_time"){
+                if (c_time == act_mark_st[0]) {
+                    var act_up = "act_up ";
+                    arr_act_up.push(act_up);
+                } else {
+                    var act_up = "";
+                    arr_act_up.push(act_up);
+                }
+                if (c_time == act_mark_ed[0]) {
+                    var act_down = " act_down";
+                    arr_act_down.push(act_down);
+                } else {
+                    var act_down = " ";
+                    arr_act_down.push(act_down);
+                }
+                }else{
+                       jQuery.noop();
+                    }
+                });
+                /* Actual section plotting */
+
+                sss = sss + '<div class="minst ' + arr_act_up[arr_act_up.indexOf("act_up ")] + " " + tar_up + tstr + bstr + tar_down + " " + arr_act_down[arr_act_down.indexOf(" act_down")] + '" title="' + i + ':' + j + '"></div>';
+        }
+        sss = sss + '</div>';
+    }
+    //target end
+    sss = sss + '</div>';
+    // *** Daily Feedogram Start ***//
+    for (var i = 6; i < 18; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+        for (var j = 0; j < 60; j++) {var act="";
+            //How to get time here
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var ind = ftime.indexOf(c_time);
+            
+			for (var l = 0; l < ftime.length; l++) {
+        if(ftime[l]==c_time){
+		     if(ftype[l] == "f" || ftype[l] == "b"){ 
+								act = act + "<img src='food.png'>";
+						   } else if(ftype[l] == "w"){
+								act = act + "<img src='water.png'>";
+						   } else if(ftype[l] == "m"){
+								act = act + "<img src='med.png'>";
+						   } else {
+							var act = act = act + "";
+						   }
+		
+		    }else{}
+}
+			
+            sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+        }
+        sss = sss + '</div></div>';
+    }
+    for (i = 18; i < 24; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+        for (var j = 0; j < 60; j++) { var act="";
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var ind = ftime.indexOf(c_time);
+            for (var l = 0; l < ftime.length; l++) {
+        if(ftime[l]==c_time){
+		     if(ftype[l] == "f" || ftype[l] == "b"){ 
+								act = act + "<img src='food.png'>";
+						   } else if(ftype[l] == "w"){
+								act = act + "<img src='water.png'>";
+						   } else if(ftype[l] == "m"){
+								act = act + "<img src='med.png'>";
+						   } else {
+							var act = act = act + "";
+						   }
+		
+		    }else{}
+}
+            sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+        }
+        sss = sss + '</div></div>';
+    }
+
+    for (i = 0; i < 6; i++) {
+        sss = sss + '<div class="cnt-blk blocks"><div class="mholder">';
+        for (var j = 0; j < 60; j++) { var act="";
+            var ctime = new Date(2016, 11, 11, i, j, 0);
+            var c_time = ctime.getTime();
+            var ind = ftime.indexOf(c_time);
+            for (var l = 0; l < ftime.length; l++) {
+        if(ftime[l]==c_time){
+		     if(ftype[l] == "f" || ftype[l] == "b"){ 
+								act = act + "<img src='food.png'>";
+						   } else if(ftype[l] == "w"){
+								act = act + "<img src='water.png'>";
+						   } else if(ftype[l] == "m"){
+								act = act + "<img src='med.png'>";
+						   } else {
+							var act = act = act + "";
+						   }
+		
+		    }else{}
+}
+            sss = sss + '<div class="mins" title="' + i + ':' + j + '">' + act + '</div>';
+        }
+        sss = sss + '</div></div>';
+    }
+    count++;
+    sss = sss + '<div class="cb"></div></aside><div class="cb"></div></section>';
+}
+jQuery(".loader").hide();
+    jQuery(sss).insertAfter(".head_row");
+    var sec_height = jQuery(".head_row").height();
+    //var j_height = jQuery(".chat-line-row").height();
+    jQuery(".head_row + section").css("margin-top", sec_height);
+    jQuery(".chat-container section").last().css("margin-bottom", "40px");
+/* Time duration calculation */
+function toSeconds(time_str) {
+    // Extract hours, minutes and seconds
+    var parts = time_str.split(':');
+    // compute  and return total seconds
+    return parts[0] * 3600 + // an hour has 3600 seconds
+    parts[1] * 60; // a minute has 60 seconds
+    
+}
+
+var a = tar_st; //console.log(a);
+var b = tar_en; //console.log(b);
+
+var difference = Math.abs(toSeconds(a) - toSeconds(b));
+//console.log(Math.floor(difference / 3600));
+//console.log(Math.floor((difference % 3600) / 60));
+// format time differnece
+var result = [
+    Math.floor(difference / 3600), // an hour has 3600 seconds 
+    Math.floor((difference % 3600) / 60) // a minute has 60 seconds
+];
+// 0 padding and concatation
+result = result.map(function(v) {
+    return v < 10 ? '0' + v : v;
+}).join(':');
+
+/*Actual time calculation */
+
+/* End of Actual time calculation */
+//alert(result);
+var taget_st_time = tar_st;
+    time = taget_st_time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)?$/) || [taget_st_time];
+    if (time.length > 1) { // If time format correct
+        time = time.slice(1); // Remove full string match value 
+        //console.log(time);
+        time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+        time[0] = +time[0] % 12 || 12; // Adjust hours
+        var tar_12_st = time.join('');
+    }
+    //console.log(tar_12_st);
+    var sel = $(".tar_up"); //console.log(sel);
+    var sel2 = $(".tar_down"); //console.log(sel);
+    var act_sel = $(".act_up"); //console.log(sel);
+    var act_sel2 = $(".act_down"); //console.log(sel);
+    $(sel).parent("div.cnt-blk").addClass('tar_str_flag');
+    $(sel2).parent("div.cnt-blk").addClass('tar_end_flag');
+    $(act_sel).parent("div.cnt-blk").addClass('act_str_flag');
+    $(act_sel2).parent("div.cnt-blk").addClass('act_end_flag');
+    var wid_len = $(sel).parent("div.cnt-blk").index("div.cnt-blk"); //console.log(wid_len);
+    var act_wid_len = $(act_sel).parent("div.cnt-blk").index("div.cnt-blk"); //console.log(wid_len);
+    var wid_all = $(sel).parent("div.cnt-blk").prevAll().width(); //console.log(wid_all);
+    var act_wid_all = $(act_sel).parent("div.cnt-blk").prevAll().width(); //console.log(wid_all);
+    if(!wid_all){
+        wid_all = act_wid_all;
+    }
+    var cal_wid = wid_len * wid_all; //console.log(cal_wid +'px');
+    var act_cal_wid = act_wid_len * act_wid_all; //console.log(cal_wid +'px');
+    var get_aside_wid = $('.chat-container > .chat-line-row > aside').width();
+    var min_index = $('div.tar_up').index();
+    var act_min_index = $('div.act_up').index();
+    var min_wid = $('div.tar_up').prevAll().width();
+    var act_min_wid = $('div.act_up').prevAll().width();
+
+     if(min_wid === undefined) {
+
+         min_wid = 0
+     }
+    var margin_left_min = min_index * min_wid; //console.log(margin_left_min);
+    var act_margin_left_min = act_min_index * act_min_wid; //console.log(margin_left_min);
+    var min_end_index = $('div.tar_down').index();
+    var act_min_end_index = $('div.act_down').index();
+    var min_end_wid = $('div.tar_down').prevAll().width();
+    var act_min_end_wid = $('div.act_down').prevAll().width();
+
+
+     if(min_end_wid === undefined) {
+
+            min_end_wid = 0
+      }
+    var margin_right_min = min_end_index * min_end_wid; //console.log(margin_right_min);
+    var act_margin_right_min = act_min_end_index * act_min_end_wid; //console.log(margin_right_min);
+    var tar_space = cal_wid + get_aside_wid + margin_left_min; //console.log(tar_space);
+    var act_tar_space = act_cal_wid + get_aside_wid + act_margin_left_min; //console.log(act_tar_space);
+    var tar_end_index = $('div.tar_end_flag').index("div.cnt-blk.blocks"); //console.log(tar_end_index);
+    var act_tar_end_index = $('div.act_end_flag').index("div.cnt-blk.blocks"); //console.log(act_tar_end_index);
+    var tar_diff = tar_end_index - wid_len; //console.log(tar_diff);
+    var act_tar_diff = act_tar_end_index - act_wid_len; //console.log(tar_diff);
+    var tar_wid = ((wid_all * tar_diff) - margin_left_min) + margin_right_min; //console.log(tar_wid);
+    var act_tar_wid = ((act_wid_all * act_tar_diff) - act_margin_left_min) + act_margin_right_min;
+	
+	var target_plot = "";
+	//alert(tar_st);
+    if(tar_st != "00:00" && tar_en != "00:00" && tar_st != "" && tar_en != ""){
+    target_plot = '<section style="margin-top:20px;margin-bottom:50px"><div class="target-plot"><div style="margin-left:' + tar_space + 'px' + ';width:' + tar_wid + 'px' + '" ><div style="width:100%" class="con"><p class="lft">' + tar_st + '</p><p class="rgt">' + tar_en + '</p><div class="cb"></div></div><p style="display:block;text-align:center" class="print-total">Cible ' + result + 'h</p><div class="cb"></div></div></div></section>';
+    } else {
+        jQuery.noop();
+    }
+    $.each(myJSONObject, function(index, val) {
+        //console.log(tar_space);
+        if(index === "actual_start_time"){
+             var c = arr_act_st[0]; //console.log(c);
+            var d = arr_act_ed[0]; //console.log(d);
+
+            var difference = Math.abs(toSeconds_act(c) - toSeconds_act(d));
+            //console.log(Math.floor(difference / 3600));
+            //console.log(Math.floor((difference % 3600) / 60));
+            // format time differnece
+            var result_act = [
+                Math.floor(difference / 3600), // an hour has 3600 seconds 
+                Math.floor((difference % 3600) / 60) // a minute has 60 seconds
+            ];
+            // 0 padding and concatation
+            result_act = result_act.map(function(v) {
+                return v < 10 ? '0' + v : v;
+            }).join(':');
+            //console.log(result_act);
+
+             //if(chart_type == 'normal'){
+               if(arr_act_st[0] != "0:0" && arr_act_ed[0] != "0:0"){
+
+            target_plot += '<section style="margin-top:-10px;margin-bottom:60px"><div class="target-plot"><div style="margin-left:' + act_tar_space + 'px' + ';width:' + act_tar_wid + 'px' + '" ><div style="width:100%;background:#ccece7;" class="con"><p class="lft">' + arr_act_st[0] + '</p><p class="rgt">' + arr_act_ed[0]+ '</p><div class="cb"></div></div><p style="display:block;text-align:center" class="print-total">R�el ' + result_act + 'h</p><div class="cb"></div></div></div></section>';
+        	} else {
+		        jQuery.noop();
+		    }
+		    //}
+        }else{
+           jQuery.noop(); 
+        }
+    });
+    //var he = jQuery(target_plot).css('margin-top','50px' ); //alert(sec_height);
+    var no_data_found = '<div class="no-data">No data found</div>';//console.log(sec_height);
+    
+    if(cnts != 0){
+        jQuery(target_plot).insertBefore(".loader");
+    } else {
+        jQuery(no_data_found).insertBefore(".loader"); 
+    }
+    setTimeout(function(){ //alert(123);
+           $('html, body').animate({ scrollTop: $(document).height() }, 0);
+    }, 200);
+jQuery(".no-data").css({"margin-top": sec_height,"text-align":"center","padding-top":"55px","font-size":"50px"});
+// *** Daily Feedogram END ***//
+});
+}
+ function getTime(miltime){
+  var tar_12;
+  var taget_time = miltime;
+    time = taget_time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)?$/) || [taget_time];
+    if (time.length > 1) { // If time format correct
+        time = time.slice(1); // Remove full string match value 
+        //console.log(time);
+        time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+        time[0] = +time[0] % 12 || 12; // Adjust hours
+        tar_12 = time.join('');
+    }
+  return tar_12;
+}
+function toSeconds_act(time_str) {
+    // Extract hours, minutes and seconds
+    var seac = time_str.search(':');
+    if (seac != -1){ //console.log(seac);
+        var parts = time_str.split(':');
+    } else {
+        var z_val = '0';
+        var parts_nw = time_str.concat(':',z_val);
+        var parts = parts_nw.split(':');//console.log(parts);
+    }
+    // compute  and return total seconds
+    return parts[0] * 3600 + // an hour has 3600 seconds
+    parts[1] * 60; // a minute has 60 seconds
+    
+}
+</script>
+	</head>
+	<body>
+		<div class="fwmt-page">
+			<div class="chat-container">
+				<section class="header-row head_row">
+                    <aside></aside>
+                    <aside>
+                        <strong>6</strong>
+                        
+                    </aside>
+                    <aside>
+                        <strong>9</strong>
+                       
+                    </aside>
+                    <aside>
+                        <strong>12</strong>
+                       
+                    </aside>
+                    <aside>
+                        <strong>15</strong>
+                        
+                    </aside>
+                    <aside>
+                        <strong>18</strong>
+                        
+                    </aside>
+                    <aside>
+                        <strong>21</strong>
+                        
+                    </aside>
+                    <aside>
+                        <strong>00</strong>
+                       
+                    </aside>
+                    <aside>
+                        <strong>3</strong>
+                       
+                    </aside>
+                    <aside>
+                        <strong>6</strong>
+                       
+                    </aside>
+                    <div class="cb"></div>
+                </section>
+                <div class="loader"><img src="loading-fr.png" alt="loading..."/></div>
+			</div>
+		</div>
+	</body>
+</html>

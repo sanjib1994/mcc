@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_summery">SummeryActivity</string>
+    <string name="back"></string>
+    <string name="send">Send!</string>
+    <string name="plus">+</string>
+    <string name="TakePhoto">Take Photo</string>
+    <string name="iconlog"></string>
+    <string name="info_sub"> This research study explores the connections between multiple
+        						aspects of human nutrition and health. We wish to use smartphones
+        						to overcome the drawbacks of the traditional pen &amp;
+        						paper food diary and identify eating patterns and dietary
+        						factors that contribute to disease.</string>
+    <string name="main_header">Salk Metabolic Study 2014</string>
+    <string name="sub_header">Panda lab, Salk Institute, La Jolla, California</string>
+    <string name="login_info">If you are enrolled in the Salk Metabolic Study and received
+        						an access code, please sign in above.
+        						If you wish to learn more, please visit our website below.
+        						This is a research study that explores multiple aspects
+        						of human nutrition and is conducted with approval from
+        						the Institutional Review Board of the Salk Institute,
+        						La Jolla.</string>
+    <string name="info_notice">Important note: Please be advised that we collect information
+        						about your geographical location.</string>
+    <string name="bmi_info_notice">The body mass index (BMI), or Quetelet index, is a value derived from the mass (weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from weight in kilograms and height in metres. (Refer: https://en.wikipedia.org/wiki/Body_mass_index).</string>
+    <string name="bp_info_notice">Blood pressure (BP) is the pressure exerted by circulating blood upon the walls of blood vessels and is one of the principal vital signs. A person’s blood pressure is usually expressed in terms of the systolic (maximum) pressure over diastolic (minimum) pressure and is measured in millimeters of mercury (mm Hg). Normal resting blood pressure for an adult is approximately 120/80 mm Hg. (Refer: http://www.nhlbi.nih.gov/health/health-topics/topics/hbp)</string>
+    <string name="bs_info_notice">The blood sugar concentration or blood glucose level is the amount of glucose (sugar) present in the blood of a human or animal. The body naturally tightly regulates blood glucose levels as a part of metabolic homeostasis. Many factors affect a person blood sugar level. (Refer: http://www.joslin.org/info/Goals-for-Blood-Glucose-Control.html)</string>
+    <string name="sa_info_notice">Sleep is a naturally recurring state of mind characterized by altered consciousness, relatively inhibited sensory activity, inhibition of nearly all voluntary muscles, and reduced interactions with surroundings. (Refer: https://en.wikipedia.org/?title=Sleep)</string>
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="previous"> &lt; Previous </string>
+    <string name="greater">&gt;</string>
+    <string name="title_activity_anthropometric">AnthropometricActivity</string>
+
+    <string name="details_alarm_tone">Alarm Tone</string>
+    <string name="details_alarm_tone_default">Select an alarm tone</string>
+    <string name="AlarmNameInput">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-+ .</string>
+    <string name="AlarmNameInput_slash">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-+ .\/,</string>
+    <!-- Nav Drawer Menu Items -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+
+
+    <!-- Content Description -->
+    <string name="title_activity_diabetes">DiabetesActivity</string>
+    <string name="title_activity_coordinator">CoordinatorActivity</string>
+    <string name="title_activity_participant">ParticipantActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="server_registered">Demo Server: successfully added device!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregistered">Demo Server: successfully removed device!</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="gcm_unregistered">GCM: device successfully unregistered!</string>
+    <string name="gcm_deleted">GCM: server deleted %1$d pending messages!</string>
+    <string name="gcm_error">GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">GCM: recoverable error (%1$s).</string>
+    <string name="degree">\u2109</string>
+    <string name="bullet">\u2022</string>
+    <string name="title_activity_new_food_log">NewFoodLog</string>
+    <string name="title_activity_new_food_log_annotation">NewFoodLogAnnotationActivity</string>
+    <string name="title_activity_activity_detector">ActivityDetectorActivity</string>
+    <string name="getting_started">GETTING STARTED</string>
+
+
+    <!--information page-->
+    <string name="how_to_videos">HOW TO VIDEOS</string>
+    <string name="tips">TIPS</string>
+    <string name="contact">CONTACT</string>
+    <string name="faq">FAQS</string>
+    <string name="When_should_I_sleep">When should I sleep?</string>
+
+
+    <!--FAQs page-->
+    <string name="When_should_I_exercise">When should I exercise?</string>
+    <string name="How_much_should_I_exercise">How much should I exercise?</string>
+    <string name="eating_interval_goal_be">What should my eating interval goal be?</string>
+    <string name="What_are_the_health_benefits_of_eating">What are the health benefits of eating within an 8 to 12-hour interval?</string>
+    <string name="If_I_restrict_my_food">If I restrict my food/drink intake to 8 to 12-hours, does it matter what I eat?</string>
+    <string name="decided_on_an_eating_interval_goal">I’ve decided on an eating interval goal; what time of day should I eat?</string>
+    <string name="Does_it_matter_when_I_eat">Does it matter when I eat certain foods?</string>
+    <string name="How_long_do_I_need">How long do I need to use MyCircadianClock?</string>
+    <string name="Can_I_sync_my_data">Can I sync my data from my phone or activity tracking device to the app?</string>
+    <string name="Can_I_use_the_app_offline">Can I use the app offline?</string>
+    <string name="What_is_the_correct_way">What is the correct way to add annotations?</string>
+    <string name="Can_I_save_multiple_Food">Can I save multiple Food items at once?</string>
+    <string name="Does_Caffeine_Count">Does Caffeine Count?</string>
+    <string name="How_can_I_edit_an_annotation">How can I edit an annotation that I didn’t mean to select?</string>
+    <string name="Can_I_delete_an_entry">Can I delete an entry that I didn’t mean to save?</string>
+    <string name="Can_I_still_record_food">Can I still record food or drinks that I had earlier and forgot to record?</string>
+    <string name="What_are_Self">What are Self-Determined Goals?</string>
+    <string name="What_is_feedogram">What is a “feedogram”?</string>
+    <string name="Why_cant_feedogram">Why can’t I see my feedogram?</string>
+    <string name="What_are_the_marks">What are the marks in the Feedogram section?</string>
+    <string name="How_do_sleep">How do I set sleep goals?</string>
+    <string name="How_medicine_intake">How do I record my supplements or medicine intake?</string>
+    <string name="Can_I_add_my_previous">Can I add my previous day\'s exercise log?</string>
+    <string name="What_is_the_activity">What is the activity chart?</string>
+    <string name="What_is_BMI">What is BMI? How do I calculate it?</string>
+    <string name="What_is_BMI_chart">What is the BMI chart?</string>
+    <string name="my_blood_sugar">How do I log my blood sugar?</string>
+    <string name="blood_sugar_chart">What is the blood sugar chart?</string>
+    <string name="Blood_Pressure">How do I record my Blood Pressure?</string>
+    <string name="What_are_Systolic">What are Systolic and Diastolic?</string>
+    <string name="Blood_Pressure_Data">How can I view my previously recorded Blood Pressure Data?</string>
+    <string name="The_optimal_timing">The optimal timing and duration of sleep depends on each individual’s sleep needs, schedule, and internal biological rhythm. The amount of sleep needed changes across your lifespan, but for adults (18 years or older) it is suggested to get 7 to 9-hours of sleep per night. Please consult a doctor for sleep and health advice.</string>
+
+    <!--FAQs Sub-->
+    <string name="There_is_no_one_exact">There is no one exact time that you should or should not exercise. Here is some information you may want to keep in mind when you determine when and how much you plan to exercise:\n\n• There is a sharp rise in heart rate in the early morning (~6:45 am, this time will vary based on schedule) due to a peak in cortisol to help you wake up.\n\n• Muscles have the best coordination in the afternoon around 2:30 pm.\n\n• Muscles have the fastest reaction time around 3:30pm.\n\n• Cardiovascular efficiency and muscle strength is greatest around 5pm.\n\n• Blood pressure is highest around 6pm.\n\n• Exercise arouses the brain, so it is good to stop vigorous activity a few hours before you plan to sleep.</string>
+    <string name="You_should_consult">You should consult a doctor about intensity, duration, frequency, and types of exercise that are best for you.\n\n The American Heart Association Recommendations are below.\n\nFor Overall Cardiovascular Health:\n\n• At least 30 minutes of moderate-intensity aerobic activity at least 5 days per week for a total of 150\n\nOR\n\n• At least 25 minutes of vigorous aerobic activity at least 3 days per week for a total of 75 minutes; or a combination of moderate- and vigorous-intensity aerobic activity\n\nAND\n\n• Moderate- to high-intensity muscle-strengthening activity at least 2 days per week for additional health benefits.\n\nFor Lowering Blood Pressure and Cholesterol:\n\n• An average 40 minutes of moderate- to vigorous-intensity aerobic activity 3 or 4 times per week</string>
+    <string name="We_do_not_provide">We do not provide specific goals for eating, sleeping, or activity. It is up to you to determine goals that you feel are best for your health and your lifestyle.\n\nOur research in animal models has shown that eating and drinking within an 8 to 12-hour interval has a wide variety of health benefits. Another way of thinking about this is that your body needs to fast for ~12 to 16-hours per day. We do not yet know the exact eating interval that is needed to see the full effects in humans. In preliminary trials in humans, health benefits were observed when eating was restricted to a 10 to 11-hour eating/drinking interval per day.\n\nYour chosen eating interval should also take into account your baseline eating interval. For example, if you are currently eating over a 16-hour interval, you would likely see benefits from switching to a 12-hour interval. If you are already eating between a 12 or 13-hour interval, you may need to switch to a 10 or 11-hour eating interval goal to see health benefits.\n\nFor more information about research from our lab and others, please see the blog and science sections on our website, www.mycircadianclock.org. </string>
+    <string name="A_majority_of_research">A majority of research on time-restricted feeding has been done in flies and mice. We have also run preliminary studies in humans. Potential benefits include:\n\n• Weight loss\n• Decreased cholesterol\n• Decreased blood pressure\n• Decreased blood sugar\n• Decreased A1c\n• Better sleep quality\n• Increased Alertness\n• Increased Endurance\n• Decreased body fat</string>
+    <string name="healthy_lifestyle">Yes. A healthy lifestyle is determined by when, what, and how much you eat, sleep, and move. Timing of caloric intake is only one of those components. When you eat is a very important aspect that is frequently ignored. If all you change is the timing of your food, it should still have a beneficial effect, but it would be optimal to eat healthy proportions and quality of food. For example, in mice, we found that mice on an 8 to 12-hour eating interval did not gain weight when put on a high fat diet. However, mice that stuck to an 8 to 12-hour eating interval on normal diet were still healthier than the mice on the high fat diet. </string>
+    <string name="start_stop_times">Determine the start and stop times of your eating and drinking that best fit your schedule. The exact times vary greatly depending on the individual. It is a good idea to not eat or work out too close to when you plan on falling asleep, but aside from that, figure out what works for you and do your best to stick to it. You can update your target interval and timing at any time. \n\nExample: If you were to set a goal of a 11-hour eating interval, and your first drink or sip (of anything but water and medicine) was at 7am, then your last drink or sip would be at or before 6pm. After 6pm, you would only be able to have water and medications. This schedule would allow for an 11-hour feeding interval and a 12-hour fasting interval.</string>
+    <string name="Your_body_digests">Your body digests food differently throughout the day due to biological rhythms in your digestive system. Your liver is best at processing high calorie foods in the first half of the day. Therefore, when you eat a large meal or dessert late in the day, not only is your liver not capable to digesting it well, but it is also likely that you will not be very active until the next day. Eating higher calorie meals in the first half of the day allows your body to digest the food better and gives you time to use those calories with your daily activity.</string>
+    <string name="In_order_to">In order to obtain sufficient data, we ask that you use the app for a total of 14 weeks. The first two weeks are a baseline period in which time you will start using the app to log your current eating, sleeping, and activity patterns. At the end of the baseline period, you will receive a report that summarizes your lifestyle. Throughout the next 12 weeks of the study, you will continue to document your daily behaviors, but you can also set your own goals for timing of eating and sleeping. You will be able to view your history anytime through the app.\n\nEating within an 8 to 12-hour interval is part of a healthy lifestyle and should continue through your life. You are more than welcome to continue to use the app beyond 14 weeks. 14 weeks is a short amount of time that is still sufficient to see most benefits and get usable data. </string>
+    <string name="Data_from_Google">Data from Google Fit or the Apple Health Kit are automatically synced with the myCircadianClock app. If you have another device, such as a smartwatch or activity tracker, simply sync it with Google Fit or Apple Health Kit and the information will automatically be synced with the mycircadianclock app. \n\nFitbit does not currently sync with Google Fit or the Apple Health Kit. There is an app called Sync Solver that will sync data from Fitbit with the Apple Health Kit, but does not sync it to Google Fit. We have no affiliation with Sync Solver and do not endorse the use of their app. </string>
+    <string name="offline_app">Yes, you can use the app offline, but you won’t be able to view the Feedogram or history in offline mode.</string>
+    <string name="You_can_type_annotation">You can type in the annotation (excluding quantity) in the text box. After you press the \'return\' button, it is added to the list below the entry box. You can type another food name to describe everything on your plate. Every food item you type is saved in a list above the text entry box. Within a few days, the food items you frequently eat will be displayed on the top of the list, so you can just tap on those names to describe what you ate or drank.</string>
+    <string name="send_multiple_food">Yes, you can send multiple food items at a time. See “How do I log what I eat or drink?” for more information.</string>
+    <string name="caffeine_counts">Yes, caffeine counts, as it can affect your metabolism.</string>
+    <string name="delete_annotation">If you want to delete an annotation, simply long-press the item in the list area (above the text entry field, not below) and you will be prompted to delete that item.</string>
+    <string name="item_saved">Once an item is saved, it cannot be deleted or altered. We do expect a certain level of recording error, so don’t panic if you saved something by mistake or with incorrect information. Just double check future entries before saving.</string>
+    <string name="send_data">Yes, you can always send data after the fact, so if you forget to take photos or record something, don’t worry. Send according to the following steps:\n\nStep 1: Go to the main photo screen and click on plus icon at the bottom of your screen. \n\nStep 2: Add new annotations in the Enter Annotation field or select from the available list of items.\n\nStep 3: Select how long ago you had this item.\n\nStep 4: Click on Send button. The same process can be used to record medicines and water, just select the appropriate category at the top of the annotation screen.</string>
+    <string name="baseline_period">At the end of your 14-day baseline period, you can review what, when, and how much you ate in the “feedogram” tab. You may also review your sleeping patterns, exercise, and daily step counts as sensed by the phone. After reviewing your own data on daily pattern of activity, sleep and food, you may decide to change these daily behaviors. We call this self-selected daily behavior changes as intervention. We would like to see if knowing your own daily habits of food, sleep and activity and how they affect your health will encourage you to change these patterns. It is entirely up to you to make any change or just continue with your current daily routine. In the subsequent 12 weeks, you will know if you made any lasting change and whether it had any impact on your health. Some changes may be as simple as taking your supplements/medications at the right time, walking a few hundred steps extra, avoiding late night eating, or sleeping an extra 15min.\n\nResearch in animal models has shown eating within a shorter window of 8-12 hours every day can reduce body fat, improve sleep, and may have many health benefits. You can set an eating window during which you wish to eat by clicking on the “Set Target button” in the Feedogram tab. The target window is shown within a yellow box on the Feedogram and a blue bar below it. To see previous week’s eating window summary, tap on the “History” button. Water and medications/supplements are not considered as food/beverages, so you may continue to drink water and take your supplement/medications as suggested by your physician or pharmacist.</string>
+    <string name="feedogram_timeline">A feedogram is a timeline of all food, beverages, water, medicines/supplements you have recorded. The green marks represent food and beverages, red represents water, and orange represents medication/supplements. This snapshot is an easy display of when and what we put into our stomach. Touching any of these marks also shows you the items. Below the “feedogram” is a horizontal green bar showing the average time window in which you typically eat all your food and beverages during weekdays. The orange bar below it shows the eating window during the weekend. Research has shown eating within a shorter window of 8-12 hours every day can reduce body fat, improve sleep and may have many health benefits. You can set an eating window during which you wish to eat by clicking on the “Set Target button”. The target window is shown within a yellow box on the Feedogram and a blue bar below it. To see previous week’s eating window summary, tap on the “History” button. Water and medications/supplements are not considered as food/beverages, so you may continue to drink water and take your supplement/medications as suggested by your physician or pharmacist.</string>
+    <string name="feedogram_will_become_available">The feedogram will become available at the end of your 14-day baseline period. Once it appears, you can review your eating patterns and select a target interval during which you may try to eat all your food and beverages.</string>
+    <string name="Feedogram_menu">When you will click on the Feedogram menu you will find different colored marks on it. These represent different food types. If you have logged an item of “Food”/“Beverage” type you will find a red circle on the Feedogram. If you have logged “Medicine/supplement” it will be orange, and if you logged “Water” you will find blue water droplet.</string>
+    <string name="sleep_goals">You can set sleep goals on the settings page. You can enter your goal \'start\' time and total duration of sleep.</string>
+    <string name="take_photo">When you take a photo and are prompted to select a category, simply select “Medicine”. If you are sending data via annotation only, just be sure you are entering annotations under the “Medicine” category as selected from the top of the screen.</string>
+    <string name="previous_exercise">Yes, you can log previous exercise the same way you would if you just worked out. Just set the time and date of when you exercised. See “How do I log my exercise?” for more information.</string>
+    <string name="activity_chart">The activity chart tracks the dates and durations of your exercise. In order to view your exercise chart, click on the icon of the biker with a graph located at the top of the home screen. You can also select the monthly and yearly tabs to view the previously entered records. Note, you will not be able to view the exercise chart until you completed your 2-week baseline period.</string>
+    <string name="Body_Mass_Index">BMI stand for Body Mass Index. It is used as a generalized standard to assess weight and in relation to your height. To calculate your Body Mass Index:\n\nStep 1: Go to the plus icon and select health tracking button on the right.\n\nStep 2: Enter your weight and height.\n\nStep 3: Once your height and weight are entered, you will be able to view your BMI on the health history page. Each time you change your weight, your BMI will change as well.</string>
+    <string name="BMI_chart_displays">The BMI chart displays your recorded BMI values, allowing you to track changes over time. To view your BMI chart, click on the graph icon present at the top left corner of the BMI page. You can also select the monthly and yearly tabs to view previously entered records.</string>
+    <string name="measure_blood_sugar">The app does not measure your blood sugar. You may measure your blood sugar using a blood sugar monitor and then record the values in this app. You can record your blood sugar value each time you measure using the following steps:\n\nStep 1: Click on the plus icon at the bottom of the homepage. Choose the health data tab.\n\nStep 2: Click on the “Labs” Submenu, then select the data type.\n\nStep 3: Select when you measured your blood sugar and if you were in a fasted state or not (fasting means did not consume anything but water for 12 hours prior to the blood draw).\n\nStep 4: You can enter your blood sugar value by tapping on the respective field and pressing the “Save” button to log your value.</string>
+    <string name="recorded_blood_sugar">The blood sugar chart displays your recorded blood sugar values, allowing you to track any changes over time. In order to view your records, click on the graph icon at the top left corner of the Blood Sugar page. You can also select the monthly and yearly tabs to view the previously entered records.</string>
+    <string name="measure_blood_pressure">The app does not measure your blood pressure. You may measure your blood pressure using a blood pressure monitor and then record the values in this app. Follow the steps below to record your blood pressure.\n\nStep 1: Click on the plus icon at the bottom of the homepage. Choose the health data tab.\n\nStep 2: Click on the “Vitals” Submenu, then select the data type.\n\nStep 3: In the blood pressure page you will find two fields, Systolic and Diastolic. \n\nStep 4: Click on Systolic for a pop-up window to appear where you can enter your Systolic value. Select Diastolic to enter your Diastolic value the same way.\n\nStep 5: When you will enter values for both fields the “Save” button will be enabled. Clicking on that button will automatically save your blood pressure and this level will be displayed in the scale accordingly.</string>
+    <string name="heart_beat">When your heart beats, it contracts and pushes blood through the arteries to the rest of the body. This force creates pressure on the arteries. This is called systolic blood pressure. It is the top number on your blood pressure reading. A normal systolic blood pressure is below 120.\n\nThe diastolic blood pressure number or the bottom number indicates the pressure in the arteries when the heart rests between beats. A normal diastolic blood pressure number is less than 80.\n\nThis app is only a tracking device. Please consult with your doctor if you have any concerns.</string>
+    <string name="graph_icon">Click on the graph icon at the bottom right corner of the homepage. It will lead you to the “History” tab. Make sure the tab is displaying “Vitals”, and select “Blood Pressure” from the pull down tab. This chart displays your recorded Systolic and Diastolic values and allows you to monitor any changes.</string>
+    <string name="Getting_Started">Getting Started</string>
+
+    <!--Getting_started page-->
+    <string name="food_beverages">How to log food and beverages</string>
+    <string name="sleep">How to log sleep</string>
+    <string name="How_to_log_exercise">How to log exercise</string>
+    <string name="add_reminders">How to add reminders</string>
+    <string name="most_of_the_benefits">In order for you to experience most of the benefits of the app and goal oriented timing of lifestyle, and for us to obtain sufficient data, we ask that you use the app for a minimum of 14 weeks. The first two weeks are a baseline period in which time you will start using the app to log your current eating, sleeping, and activity patterns. At the end of the baseline period, you will receive a report that summarizes your lifestyle. Throughout the next 12 weeks of the study, you will continue to document your daily behaviors, but you can also set your own goals for timing of eating and sleeping. You will be able to view your history anytime through the app. Keep in mind, you are more than welcome to continue using the app as long as you like.\n\nOnce you have signed up and are ready to participate, fill in your current health markers in the “Track Your Health” section of the app. This is important to track changes that may occur during the study. Please see other FAQs for more information on how to log your data and set personalized goals.</string>
+    <!--Getting_started_sub-->
+    <string name="about_to_eat_or_drink">\nStep 1: Take a picture of the item you are about to eat or drink. It can be anything: a small bite, a full meal, a glass of water, a drink, or your regular vitamins, supplements, or medicine. If there are multiple items on your plate, take a single picture of everything.\n\nStep 2: Choose the appropriate category: food, water, beverage, or medicine. If there are multiple types, select the one that you feel best applies. Example: If you are having food and beverage, select food. Once you have chosen the appropriate category you can add water as an annotation.\n\nStep 3: Type the name of the food, beverage, or medicine, or select from the menu. You can add as many annotations as needed to describe everything in the picture.\n\nStep 4: Click the save button.\n\nIf you forgot to log an item when you consumed it, click on the plus icon at the bottom of the screen. This will give you the option to log sleep, food and beverages, exercise, and health data. Select the icon for food and beverages, and it will take you to Step 2. Be sure to select when you consumed the item at the top of the screen before you click save. </string>
+    <string name="sleep_duration_and_quality">You can record your sleep duration and quality in the Sleep Analysis module. Use the following steps:\n\nStep 1: Click on the plus icon at the bottom of the screen. Then, select the sleep icon (the first blue icon).\n\nStep 2: Select “Set Time” under bed time to enter when you are going to bed. You do not need to click save at this time. Just set the time, and then put your phone down and go to sleep. You can also use the “start sleep” function, which is the icon at the top of the screen. Simply press the icon to begin your sleep entry.\n\nStep 3: When you wake up, select your “Rise Time” and enter if you have slept well or not. You can also edit the time you fell asleep at this time. If you were using the “start sleep” function, then you can end your sleep entry by pressing the “stop sleep” icon.\n\nIf you did not sleep well, you can select a reason why or write a personalized note. If you slept well, you can just click save.\n\nOnce you hit enter, your sleep duration will be calculated. You will be asked to confirm, and the duration will be plotted in the chart.\n\nIf you want to add or edit sleep times for previous nights, you can click on that day and enter bed time and rise time.\n\nOR\n\nYou can use the “Start Sleep” function at the top of the sleep page. Then select now, 5, 10, 15, or 30 mins. Then go to sleep and let the timer count your sleep. When you wake up, select “Stop Sleep.” If you go back to sleep, select “Resume Sleep” if not, select save.</string>
+    <string name="Record_your_daily_exercise">Record your daily exercise by clicking on the plus icon at the bottom of your home screen. Then, select the exercise icon (the green dumbbell). You can either use the “start exercise” option, or the default option. To use the exercise now option, simply press the “start exercise” button at the beginning of your workout. When you are finished, press the button again, and rate the intensity of your workout.\n\nTo log a previous exercise, follow these steps:\n\nStep 1: Enter the date. It will default to the today’s date. You can change the date if you are logging for a different day.\n\nStep 2: Select the “Start Time” and “End Time” that you exercised.\n\nStep 3: Choose the name of the exercise from the available list or you can also add a new exercise.\n\nStep 3: Select the level of intensity of your exercise.\n\nStep 4: Click the “Save” button to save your data.</string>
+    <string name="You_can_add_reminders">You can add reminders in the notification section of the setting page. Reminders can be used for anything you choose. Common reminders are to take medication or supplement, appointments, or to remind you of you eating, sleeping, or activity goals.</string>
+    <string name="How_To_Videos">How To Videos</string>
+
+    <!--How To Videos page-->
+    <string name="connect_to_see_video">Please connect the internet to see the video</string>
+    <string name="Have_a_question">Have a question or comment?</string>
+
+    <!--Contact page-->
+    <string name="our_researcher">Contact one of our researcher</string>
+    <string name="Subject">Subject</string>
+    <string name="Subject_hint">Subject</string>
+    <string name="Message">Message</string>
+    <string name="SEND">SEND</string>
+    <string name="CONTACT">CONTACT</string>
+    <string name="No_Internet_Connection">No Internet Connection!!!</string>
+
+    <string name="Error">Error</string>
+    <string name="Please_wait">Please wait &#8230;</string>
+    <string name="Feedback_sent">Feedback sent!</string>
+    <string name="success">success</string>
+    <string name="TIPS">TIPS</string>
+
+    <!--TIPS page-->
+    <string name="Getting_Tips">Getting Tips. Please Wait &#8230;</string>
+    <string name="research_use">This app is for research use. You will receive the access code after consenting for the research study. Go to</string>
+
+    <!--LOGIN page-->
+    <string name="Enter_email">Enter email</string>
+    <string name="LOGIN">LOGIN</string>
+    <string name="Enter_access_code">Enter access code</string>
+    <string name="Forgot_your_access_code">Forgot your access code?</string>
+    <string name="Please_connect_to_internet">Please connect to internet</string>
+    <string name="enter_valid_email">Please enter valid email</string>
+    <string name="Must_have_characters">Must have 6 characters !</string>
+    <string name="Email_not_empty">Email shouldn\'t be empty !!!</string>
+    <string name="Email_not_proper_format">Email not in proper format !!!</string>
+    <string name="Turn_on_GPS">Please Turn on GPS</string>
+    <string name="Check_Internet_Connection">Check Internet Connection</string>
+    <string name="Empty_fields">Empty fields/Invalid access code or email</string>
+    <string name="Synchronizing_data">Synchronizing data with server.\nThis may take several minutes &#8230;</string>
+    <string name="Loading">Loading&#8230;</string>
+    <string name="not_yet_registered">The email is not yet registered with us.</string>
+    <string name="Success">Success</string>
+    <string name="Authenticating">Authenticating</string>
+    <string name="enter_your_email">Please enter your email</string>
+    <string name="Enter_Email">Enter Email</string>
+    <string name="Done_login">Done</string>
+    <string name="Settings">Settings</string>
+
+
+    <!--NewSettingsInBaseline page-->
+    <string name="Medicine_reminder">Medicine reminder</string>
+    <string name="after_food_">after food</string>
+    <string name="Pending_Items">Pending Items</string>
+    <string name="Research_Info">Research Info</string>
+
+
+    <!--CameraFragment/HomePage-->
+    <string name="Start_taking_pictures">Start taking pictures to see today\'s progress</string>
+    <string name="min_since_last_food">0 hours 0 min since last food</string>
+    <string name="fasting_target">6 hours 45 min \n till fasting target</string>
+    <string name="You_have_excercised">You have excercised 0/7 days this week</string>
+    <string name="zero_steps">0/0 steps</string>
+    <string name="You_have_completed">You have completed 0/14 weeks of the study</string>
+    <string name="sleep_last_night">0/0 hours of sleep last night</string>
+    <string name="day_baseline_period">You are on day 4 of the \n 14 days baseline period.</string>
+    <string name="During_this_time_please">During this time, please log your current \n eating, sleep and exercise patterns. \n At the end of the 14 days, you\'ll be able \n to see all of your data and set goals!</string>
+    <string name="Please_send_food_to_start">Please send food to start the baseline.</string>
+    <string name="Water_text">Water</string>
+    <string name="Feedogram">Feedogram</string>
+    <string name="Sleep_Analysis">Sleep Analysis</string>
+    <string name="Questions">Questions</string>
+    <string name="Time_since_last">Time since last calorie</string>
+    <string name="hrs_mins">0 hrs 0 mins</string>
+    <string name="any_survey_now">You do not have any survey now.</string>
+    <string name="have_completed">You have completed</string>
+    <string name="weeks_of_study">/14 weeks of the study</string>
+    <string name="You_are_on_day">You are on day </string>
+    <string name="of_the"> of the \n</string>
+    <string name="days_baseline"> days baseline period.</string>
+    <string name="please_log_your_current">During this time, please log your current \n eating, sleep, and exercise patterns. \n At then end of the </string>
+    <string name="and_set_goals">days, you’ll be able \n see all of your data and set goals!</string>
+    <string name="Battery_level">Battery level so low to take picture</string>
+    <string name="GPS_settings">GPS settings</string>
+    <string name="GPS_not_enabled">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="Cancel">Cancel</string>
+    <string name="do_not_support_flash_light">Sorry, your device doesn\'t support flash light!</string>
+    <string name="OK">OK</string>
+    <string name="Would_you_like_to">Would you like to answer the  questions now?</string>
+    <string name="step">steps</string>
+    <string name="hours_of_sleep_night">hours of sleep last night</string>
+    <string name="hours"> hours </string>
+    <string name="till_fasting"> mins \ntill fasting begins</string>
+    <string name="till_breakfast"> mins\ntill breakfast</string>
+    <string name="Congratulations">Congratulations,\n you have completed the study!\n You are welcome to continue \n using the app. \n\n\n Thank you very much for \n sharing your time and data for \n research!</string>
+    <string name="since_last_food">since last food</string>
+    <string name="have_exercised">You have exercised</string>
+    <string name="days_this_week">/7 days this week</string>
+    <string name="hr">hr</string>
+    <string name="since_last_food_new_line">\nsince last food</string>
+    <string name="days">days</string>
+    <string name="mins">mins</string>
+    <string name="Notify_me_when">Notify me when</string>
+
+
+    <!--NewSettings-->
+    <string name="My_eating_window_end">My eating window ends</string>
+    <string name="My_eating_window_begins">My eating window begins</string>
+    <string name="Take_medicine_with_food">Take medicine with food</string>
+    <string name="Medicine_reminder_new">Medicine reminder</string>
+    <string name="zerohr"> 0 hr</string>
+    <string name="after_food">after food</string>
+    <string name="Remind_me">Remind me</string>
+    <string name="before_my_eating_window_ends">before my eating window ends</string>
+    <string name="My_Targets">My Targets</string>
+    <string name="Sleep_start_time">Sleep start time</string>
+    <string name="Sleep_duration">Sleep duration</string>
+    <string name="Eating_window_target">Eating window target</string>
+    <string name="Activity_target">Activity target</string>
+    <string name="to">to</string>
+    <string name="active_minutes">active minutes</string>
+    <string name="Sleep_target">Sleep target</string>
+    <string name="My_Dashboard">My Dashboard</string>
+    <string name="Time_till_fast">Time till fast</string>
+    <string name="Time_since_food">Time since food</string>
+    <string name="Days_exercised">Days exercised</string>
+    <string name="Active_minutes">Active minutes</string>
+    <string name="Hours_of_sleep">Hours of sleep</string>
+    <string name="Display_medicine_name">Display medicine</string>
+    <string name="Pending_Items_name">Pending Items</string>
+    <string name="Synchronize_Data">Synchronize Data</string>
+    <string name="Food_Data">Food Data</string>
+    <string name="Sleep_Exercise_Data">Sleep &amp; Exercise Data</string>
+    <string name="Health_Data">Health Data</string>
+    <string name="Please_check_your_internet_connection">Please check your internet connection</string>
+    <string name="Do_you_want_to_sync">Do you want to sync food data again !</string>
+    <string name="No">No</string>
+    <string name="Yes">Yes</string>
+    <string name="Synchronizing_Food_Data">Synchronizing, Food Data &#8230;</string>
+    <string name="Do_you_want_to_sync_sleep">Do you want to sync sleep data again !</string>
+    <string name="Do_you_want_to_sync_health">Do you want to sync health data again !</string>
+    <string name="Synchronizing_Health_Data">Synchronizing, Health Data &#8230;</string>
+    <string name="Synchronizing_Sleep_Exercise">Synchronizing, Sleep &amp; Exercise Data &#8230;</string>
+    <string name="eating_window_target">Please set eating window target</string>
+    <string name="set_step_target">Please set step target</string>
+    <string name="Please_set_reminder_time">Please set reminder time</string>
+    <string name="Please_set_sleep_target">Please set sleep target</string>
+    <string name="Eating_window_less">Eating window target shouldn\'t be less than 2 hours</string>
+    <string name="End_time_cannot_be">End time cannot be before start time</string>
+    <string name="Select_strat_time_first">Please select eating window start time first</string>
+    <string name="Set_target_Steps">Set target(Steps)</string>
+    <string name="Set_active_min">Set active min</string>
+    <string name="Set_target_Sleep">Set target(Sleep)</string>
+    <string name="Mins_before_fasting">Set Reminder</string>
+    <string name="Set_hour_sleep">Set hour sleep</string>
+    <string name="Set_hour_fasting">Set hour fasting</string>
+    <string name="Set_hour_fasting_min">Set hour fasting min</string>
+    <string name="Set_hour">Set hour</string>
+    <string name="Set_time">Set time</string>
+    <string name="Done">Done</string>
+    <string name="Set">Set</string>
+    <string name="time">time</string>
+    <string name="start">start</string>
+    <string name="end">end</string>
+    <string name="Self_Reminder">Self Reminder</string>
+    <string name="Baseline_settings">Once you will complete your baseline period you will be able to enable this setting.</string>
+
+
+    <!--AlarmListActivity-->
+    <string name="Delete_Reminder">Delete Reminder?</string>
+    <string name="Please_confirm_edit_reminder">Please confirm that you want to edit this reminder.</string>
+    <string name="Alarm_deactivated">Alarm deactivated</string>
+
+
+    <!--AlarmListAdapter-->
+    <string name="Alarm_activated">Alarm activated</string>
+    <string name="Goals_Start_date">Body Clock Goals Start date</string>
+    <string name="Goals_End_date">Body Clock Goals End date</string>
+    <string name="Reminder">Reminder</string>
+
+    <!--AddAlarmFragment-->
+    <string name="Add_Reminder">Add Reminder</string>
+    <string name="Save">Save</string>
+    <string name="details_alarm_name">Enter Medicine Name</string>
+    <string name="details_repeat_weekly">Do not Repeat</string>
+    <string name="details_sunday">Every Sunday</string>
+    <string name="details_monday">Every Monday</string>
+    <string name="details_tuesday">Every Tuesday</string>
+    <string name="details_wednesday">Every Wednesday</string>
+    <string name="details_thursday">Every Thursday</string>
+    <string name="details_friday">Every Friday</string>
+    <string name="details_saturday">Every Saturday</string>
+    <string name="Enter_medicine_name">Enter medicine name</string>
+    <string name="My_Food">My Food</string>
+
+
+    <!--Pending item/Setting -->
+    <string name="Sleep_Analysis_pending">Sleep Analysis</string>
+    <string name="Exercise">Exercise</string>
+    <string name="health">My Health</string>
+    <string name="Blood_Pressure_pending">Blood Pressure</string>
+    <string name="Blood_Sugar">Blood Sugar</string>
+    <string name="BMI">BMI</string>
+    <string name="Data_saved_successfully">Data saved successfully</string>
+    <string name="No_Error">No Error</string>
+    <string name="Completed">Completed</string>
+    <string name="Synchronization_completed">Synchronization completed</string>
+    <string name="Data_syncronization_depends">Data synchronization depends on your data.This may take several minutes.</string>
+    <string name="Confirm">Confirm</string>
+    <string name="Synchronizing_data_with_server">Synchronizing data with server.\n This may take several minutes&#8230;</string>
+    <string name="Bed_time">Bed time:-</string>
+    <string name="Rise_time">Rise time:-</string>
+    <string name="Status">Status:-</string>
+    <string name="Exercise_name">Exercise_name:-</string>
+    <string name="Exercise_duration">Exercise duration:-</string>
+    <string name="Exercise_lebel">Exercise lebel:-</string>
+    <string name="Resend">Resend</string>
+    <string name="Clear">Clear</string>
+    <string name="Close">Close</string>
+    <string name="You_have_been_sleeping_for">You have been sleeping for</string>
+
+
+    <!--LoggingSleepAnalysisPage -->
+    <string name="Sleep_will_start">Sleep will start at \n 15 mins</string>
+    <string name="OR">OR</string>
+    <string name="log_a_previous_sleep">log a previous sleep</string>
+    <string name="Last_three_days">Last three days</string>
+    <string name="Total_Sleep">Total Sleep</string>
+    <string name="DATE">DATE</string>
+    <string name="TODAY">TODAY</string>
+    <string name="START">START</string>
+    <string name="Time_sleep">Time</string>
+    <string name="END">END</string>
+    <string name="SLEPT_FOR">SLEPT FOR</string>
+    <string name="RESTED">RESTED ?</string>
+    <string name="Difficulty_falling_asleep">Difficulty falling asleep</string>
+    <string name="Woke_up_once_or_more">Woke up once or more</string>
+    <string name="Insufficient_sleep">Insufficient sleep</string>
+    <string name="Other">Other</string>
+    <string name="CANCEL_Sleep">CANCEL</string>
+    <string name="SAVE_Sleep">SAVE</string>
+    <string name="You_slept_for">You slept for</string>
+    <string name="you_entered_is_more">This sleep time you entered is more than 24 hour and therefore too long to log.</string>
+    <string name="you_entered_is_less">This sleep time you entered is less than one min and therefore too short to log.</string>
+    <string name="Sleep_will_start_at">Sleep will start at \n </string>
+    <string name="Start_time_Should_be">Start time Should be less than end time</string>
+    <string name="End_time_Should_be">End time Should be greater than start time</string>
+    <string name="Select_your_sleep_time">Select your sleep time</string>
+    <string name="edit_start">edit_start</string>
+    <string name="Bed_time_Set">Bed time Set Successfully</string>
+    <string name="Your_sleep_start_time">Your sleep start time cannot be</string>
+    <string name="count_as_sleep_for_this_day"> 4am to count as sleep for this day. If you did go to bed before 4am on this day, please enter it as sleep for the day before.</string>
+    <string name="Bed_time_must_be">Bed time must be lesser than sleep time</string>
+    <string name="Please_choose_sleep">Please choose sleep disruption</string>
+    <string name="This_sleep_time_you_entered">This sleep time you entered is less than one min and therefore too short to log.</string>
+    <string name="Please_set_your_sleep">Please set your sleep log</string>
+    <string name="bed_time_shouldnot_greater">Going to bed time shouldn\'t be greater than the current time.</string>
+    <string name="The_wake_time_you_entered">The wake time you entered is before the start time of sleep. Please check the date and time of your sleep entry.</string>
+    <string name="Set_Time">Set Time</string>
+
+    <string name="Long_Sleep_Bout">Long Sleep Bout</string>
+    <string name="You_entered_that_you_slept">You entered that you slept for more than 12 hours. Please confirm if this is correct.</string>
+    <string name="Rise_time_must_greater">Rise time must be greater than sleep time</string>
+    <string name="Sleep_will_start_at_min">Sleep will start at \n 30 mins</string>
+    <string name="SUCCESS">SUCCESS</string>
+    <string name="I_woke_up_at">I woke up at</string>
+    <string name="ERROR">ERROR</string>
+    <string name="Data_saved_successfull">Data saved successfully</string>
+    <string name="Going_to_bed_time_shouldnot">Going to bed time shouldn\'t be greater than the current time.</string>
+
+    <string name="When_did_you_go_to_sleep">When did you go to sleep?</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="Edit_sleep_on">Edit sleep on: </string>
+    <string name="Slept_for">Slept for: </string>
+    <string name="Bed_time_Set_Successfully">Bed time Set Successfully</string>
+    <string name="Set_Date">Set Date &amp; Time</string>
+
+
+    <!--FoodSectionFragment Page -->
+    <string name="and_time">&amp; Time</string>
+    <string name="Enter_Annotation"> ------- Enter Annotation ------- </string>
+    <string name="Food">Food</string>
+    <string name="Bev">Bev</string>
+    <string name="Water">Water</string>
+    <string name="Med">Med</string>
+    <string name="TAG_LATER">TAG LATER</string>
+    <string name="Data_saved_successfully_food">Data saved successfully</string>
+    <string name="No_Error_food">No Error</string>
+    <string name="is_already_present">is already present in Medicine</string>
+    <string name="is_already_present_Food">is already present in Food</string>
+    <string name="Item_already_selected">Item already selected</string>
+    <string name="Please_insert_annotation">Please insert annotation</string>
+    <string name="Are_you_sure">Are you sure to delete</string>
+    <string name="Deleted">Deleted</string>
+    <string name="GPS_is_not_enabled">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="Would_you_like_to_answer">Would you like to answer the  questions now?</string>
+    <string name="Selected_time_shouldnot">Selected time shouldn\'t be greater than the current time.</string>
+    <string name="SAVING_food">Saving in progress&#8230;</string>
+    <string name="Saving_Annotation">Saving Annotation. Please Wait&#8230;</string>
+    <string name="You_have_been_exercising">You have been exercising for:</string>
+
+
+    <!--LoggingExcercise Page -->
+    <string name="Log_a_previous_exercise">Log a previous exercise</string>
+    <string name="Start">Start</string>
+    <string name="End">End</string>
+    <string name="Activity">Activity</string>
+    <string name="Intensity">Intensity</string>
+    <string name="LIGHT">LIGHT</string>
+    <string name="MODERATE">MODERATE</string>
+    <string name="INTENSE">INTENSE</string>
+    <string name="EXERCISE">EXERCISE</string>
+    <string name="Aerobics">Aerobics</string>
+    <string name="Biking">Biking</string>
+    <string name="Running">Running</string>
+    <string name="Swimming">Swimming</string>
+    <string name="Walking">Walking</string>
+    <string name="Enter_Excercise">-------Enter Excercise-------</string>
+    <string name="exercise_time_you_entered_less">This exercise time you entered is less than one min and therefore too short to log.</string>
+    <string name="Please_select_duration">Please select duration</string>
+    <string name="Please_select_exercise_type">Please select exercise type</string>
+    <string name="Data_saved_successfully_exercises">Data saved successfully!</string>
+    <string name="need_to_enter_exercise">You need to enter an exercise!</string>
+    <string name="Start_time_Should_less">Start time Should be less than end time</string>
+    <string name="End_time_Should_greater">End time Should be greater than start time</string>
+    <string name="already_exist">already exist</string>
+    <string name="LOG_HEALTH">LOG HEALTH DATA</string>
+
+    <!--Health page-->
+    <string name="Date">Date</string>
+    <string name="Today">Today</string>
+    <string name="Time">Time</string>
+    <string name="Fasting">Fasting</string>
+    <string name="Vitals">Vitals</string>
+    <string name="Labs">Labs</string>
+    <string name="Data_Type">Data Type</string>
+    <string name="Value">Value</string>
+    <string name="Units">Units</string>
+    <string name="CANCEL">CANCEL</string>
+    <string name="SAVE">SAVE</string>
+    <string name="WEIGHT">WEIGHT</string>
+    <string name="HEIGHT">HEIGHT</string>
+    <string name="HEART_RATE">HEART RATE</string>
+    <string name="BLOOD_PRESSURE">BLOOD PRESSURE</string>
+    <string name="TEMPERATURE">TEMPERATURE</string>
+    <string name="BOWEL_MOVEMENT">BOWEL MOVEMENT</string>
+    <string name="BLOOD_GLUCOSE">BLOOD GLUCOSE</string>
+
+    <string name="CHOLESTEROL">CHOLESTEROL</string>
+    <string name="TRIGLYCERIDES">TRIGLYCERIDES</string>
+    <string name="HEMOGLOBIN_A1C">HEMOGLOBIN A1C</string>
+    <string name="FIBRINOGEN">FIBRINOGEN</string>
+    <string name="C_REACTIVE_PROTEIN">C-REACTIVE PROTEIN</string>
+    <string name="HOMOCYSTEINE">HOMOCYSTEINE</string>
+    <string name="KETONES">KETONES</string>
+    <string name="Please_insert_value">Please insert value</string>
+
+    <string name="If_you_have_not_consumed">FASTING: If you have not consumed any calories for the past 12 hours, you are considered to be in a fasted state. If this is the case at the time that you took the measurement, please check the box on the right.</string>
+    <string name="Please_set_valid_value">Please set valid value</string>
+    <string name="Lb_range">Lb range should be between 90 &#8211; 500</string>
+    <string name="Kg_range">Kg range should be between 40 &#8211; 225</string>
+    <string name="Ferinheight_range_beats">Fahrenheit range should be between 20 &#8211; 200 </string>
+    <string name="Ferinheight_range">Fahrenheit range should be between 90 &#8211; 105</string>
+    <string name="Celsius_range">Celsius range should be between 32.3 &#8211; 41 </string>
+    <string name="Systolic_range">Systolic range should be between 65 &#8211; 200 </string>
+    <string name="Diastolic_range">Diastolic range should be between 35 &#8211; 150 </string>
+    <string name="Bowel_movement">Bowel movement range should be between 0 &#8211; 20 </string>
+    <string name="Blood_Glucose">Blood Glucose range should be between 54 &#8211; 300</string>
+    <string name="Blood_Glucose_mmol">Blood Glucose range should be between 3.0 &#8211; 16.5</string>
+    <string name="Total_range_mg">Total range should be between 120 &#8211; 300 </string>
+    <string name="Total_range_mmol">Total range should be between 0.31 &#8211; 0.776 </string>
+    <string name="Total_range_mmol_L">Total range should be between 3.10 &#8211; 7.76 </string>
+    <string name="LDL_range">LDL range should be between 40 &#8211; 200 </string>
+    <string name="LDL_range_mmol">LDL range should be between 0.103 &#8211; 0.517</string>
+    <string name="LDL_range_mmol_L">LDL range should be between 1.03 &#8211; 5.17 </string>
+    <string name="HDL_range">HDL range should be between 20 &#8211; 120 </string>
+    <string name="HDL_range_mmol">HDL range should be between 0.0517 &#8211; 0.310</string>
+    <string name="HDL_range_mmol_L">HDL range should be between 0.517 &#8211; 3.10</string>
+    <string name="TRIGLYCERIDES_range">TRIGLYCERIDES range should be between 10 &#8211; 700</string>
+    <string name="TRIGLYCERIDES_range_mmol">TRIGLYCERIDES range should be between 25 &#8211; 330</string>
+    <string name="TRIGLYCERIDES_range_mmol_L">TRIGLYCERIDES range should be between 0.1 &#8211; 8.0</string>
+    <string name="Hemoglobin_range">Hemoglobin A1C range should be between 4.5 &#8211; 7.5</string>
+    <string name="Fibrinogen_range">Fibrinogen range should be between 100 &#8211; 500</string>
+    <string name="Fibrinogen_range_mmol">Fibrinogen range should be between 55 &#8211; 275</string>
+    <string name="Fibrinogen_range_mmol_L">Fibrinogen range should be between 5.5 &#8211; 27.5</string>
+    <string name="C_reative_range_mmol">C-reative protein range should be between 1 &#8211; 27.5</string>
+    <string name="C_reative_rang">C-reative protein range should be between 0.1 &#8211; 5.0</string>
+    <string name="C_reative_range_mmol_L">C-reative protein range should be between 0.1 &#8211; 2.75</string>
+    <string name="Ketones_range">Ketones range should be between 0  &#8211; 100</string>
+    <string name="Ketones_range_mmol">Ketones range should be between 0 &#8211; 7</string>
+    <string name="Homocysteine_range">Homocysteine range should be between 1 &#8211; 20</string>
+    <string name="HEIGHT_range_inch">HEIGHT range should be between 45 &#8211; 95 in inches</string>
+    <string name="HEIGHT_range_cm">HEIGHT range should be between 120 &#8211; 220 in cms</string>
+    <string name="beats_min">beats/min</string>
+    <string name="History">History</string>
+
+
+    <!--BaseActivity page-->
+    <string name="Intake">Intake</string>
+    <string name="Activity_baseActivity">Activity</string>
+    <string name="Health">Health</string>
+    <string name="Press_back_again">Press back again to close this app</string>
+    <string name="answer_the_questions">would you like to answer the  questions now?</string>
+    <string name="You_need_to_complete">You need to complete 14 days of logging (baseline) before you can set goals.</string>
+    <string name="You_need_to_complete_baseline">You need to complete your baseline period to see the history !</string>
+    <string name="DAYS">DAYS</string>
+
+
+    <!--History page-->
+    <string name="WEEKS">WEEKS</string>
+    <string name="MONTHS">MONTHS</string>
+    <string name="FOOD_BEV">FOOD/BEV</string>
+    <string name="WATER">WATER</string>
+    <string name="MED">MED</string>
+    <string name="TARGET">TARGET</string>
+    <string name="Jump_to_Date">Jump to Date</string>
+    <string name="Touch_to_select">Touch to select the date range</string>
+    <string name="Select_date_range">Select date range</string>
+    <string name="No_Food_Log_Found">No Food Log Found</string>
+    <string name="SLEEP">SLEEP</string>
+
+    <string name="EXERCISE_history">EXERCISE</string>
+    <string name="AVERAGE">AVERAGE</string>
+    <string name="ACTIVITY">ACTIVITY</string>
+    <string name="Reset">Reset</string>
+    <string name="STEPS">STEPS</string>
+    <string name="How_sleep_is_plotted">How sleep is plotted</string>
+    <string name="All_sleep_logged">All sleep logged for a given day is plotted on that date. Therefore, sleep from 6am onward will look as if occurred on the previous morning.</string>
+    <string name="Data">Data</string>
+    <string name="average_daily_duration_sleep">The average daily duration of sleep, exercise, and activity are displayed.</string>
+    <string name="Sleep_Avg">Sleep Avg.\n</string>
+    <string name="hrs">hrs</string>
+    <string name="UNITS">UNITS:</string>
+    <string name="VITALS">VITALS</string>
+    <string name="LABS">LABS</string>
+    <string name="day">day</string>
+    <string name="Water_transports_nutrients">Water transports nutrients and into cells, and carries waste outside our body. Remember to drink enough water and log it.</string>
+
+
+    <!--Local Notification-->
+    <string name="Water_helps_with">Water helps with metabolism and drinking enough water can help maintain good health. Remember to record every time you drink water.</string>
+    <string name="Drinking_water">Drinking water can relieve dehydration and energize. Did you forget to drink water or log it?</string>
+    <string name="Water_is_calorie">Water is calorie free. Do you drink enough water?</string>
+    <string name="Thirsty">Thirsty? You have not logged any water. Drink a glass and snap its picture.</string>
+    <string name="Hungry">Hungry? Eat and snap its picture.</string>
+    <string name="must_be_hungry">You must be hungry you haven’t logged a single item! Eat and log your food!</string>
+    <string name="Opps_no">Opps!No pictures have been taken. Be sure to log your intake.</string>
+    <string name="You_cannot_manage">You cannot manage what you don’t measure. Take a picture of your food.</string>
+    <string name="Your_body_processes">Your body processes everything you eat; a few nuts or a bite of an apple. Log everything you eat!</string>
+    <string name="Our_body">Our body has to work to process even a zero calorie drink. Remember to log everything!</string>
+    <string name="Forgot_to_snap_meal">Forgot to snap your meal? It’s not too late!. You can use the text tab to record what you ate.</string>
+    <string name="Donot_forget">Don’t forget to log your food!</string>
+    <string name="Remember_you_can">Remember: you can only track your trends if you log your food!</string>
+    <string name="Sleep_nurtures">Sleep nurtures our brain. Hope you get some sleep and log it.</string>
+    <string name="have_not_recorded">You have not recorded how much you are sleeping these days.Hope you are not working too hard.</string>
+    <string name="Are_you_getting">Are you getting enough Zzzzzzs? Make sure you record your sleep!</string>
+    <string name="Sometimes_forget">Sometimes forget the elevator, take the stairs to improve your health.</string>
+    <string name="Remember_exercise">Remember you can log your exercise at any time.</string>
+    <string name="Did_you_exercise">Did you exercise today? Don’t forget to record it!</string>
+    <string name="exercise_allows">Logging your exercise allows you to see trends – Don’t forget to log!</string>
+    <string name="Even_if_you">Even if you take a short walk, remember to log it.</string>
+    <string name="Some_exercise_help">Some exercise can help get a good night sleep. Take a walk in the park and record it.</string>
+    <string name="Small_amounts">Small amounts of exercise lead to big gains – Log your Exercise!</string>
+    <string name="Jan">Jan</string>
+
+
+    <!--Date Picker -->
+    <string name="Feb">Feb</string>
+    <string name="Mar">Mar</string>
+    <string name="Apr">Apr</string>
+    <string name="May">May</string>
+    <string name="Jun">Jun</string>
+    <string name="Jul">Jul</string>
+    <string name="Aug">Aug</string>
+    <string name="Sept">Sept</string>
+    <string name="Oct">Oct</string>
+    <string name="Nov">Nov</string>
+    <string name="Dec">Dec</string>
+    <string name="duration_title">Duration</string>
+
+    <!-- Strings for fragments/SuperToastFragment -->
+    <string name="duration_subtitle">Display duration</string>
+    <string name="duration_summary">Set the duration that the SuperToast is displayed for. Duration constants can be found in the Style class.</string>
+    <string name="frame_title">Frame</string>
+    <string name="frame_subtitle">Background frame</string>
+    <string name="frame_summary">Set the background frame of the SuperToast. If none is set, a frame is chosen in accordance with the device\'s SDK level. Frame constants can be found in the Style class.</string>
+    <string name="animation_title">Animations</string>
+    <string name="animation_subtitle">Display animations</string>
+    <string name="animation_summary">Set the animations that the SuperToast uses to display and hide. Animation constants can be found in the Style class.</string>
+    <string name="color_title">Color</string>
+    <string name="color_subtitle">Background color</string>
+    <string name="color_summary">Set the color of the SuperToast\'s background. Colors can be retrieved from the PaletteUtils class using static methods.</string>
+    <string name="type_title">Type</string>
+
+    <!-- Strings for fragments/SuperActivityToastFragment -->
+    <string name="type_subtitle">Toast type</string>
+    <string name="type_summary">Set the type of the SuperActivityToast. Type constants can be found in the Style class.</string>
+    <string name="application_icon">Application icon</string>
+
+    <!-- Strings for resource files -->
+    <string name="licensed_under_the_apache_license_version_2_0">Licensed under the Apache License, Version 2.0</string>
+    <string name="view_project_source">VIEW PROJECT SOURCE</string>
+    <string name="version_2_0">Version 2.0</string>
+    <string name="title_activity_playground">Playground</string>
+    <string name="press_the_button_below_to_show">Press the button below to show a randomized SuperToast/SuperActivityToast.</string>
+    <string name="note_1">Note 1: Please note that all attributes are random and the SuperToasts/SuperActivityToasts themselves may appear unsightly.</string>
+    <string name="note_2">Note 2: All SuperActivityToasts have touch to dismiss enabled.</string>
+    <string name="randomize">RANDOMIZER</string>
+    <string name="playground">Playground</string>
+    <string name="NO_DATA_FOUND">No Data Found.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="intro_message">
+        <![CDATA[
+
+
+            This sample demonstrates the basic use of Camera2 API. Check the source code to see how
+            you can display camera preview and take pictures.
+
+
+        ]]>
+    </string>
+    <string name="something_wrong">Something went wrong.Please try after some time.</string>
+</resources>

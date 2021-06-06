@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#5792C5"
+    >
+
+     <RelativeLayout 
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="#5792C5">
+    <TextView
+        android:id="@+id/cancelbuttonslpwh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:textSize="16dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:layout_centerVertical="true"
+        android:text="@string/Cancel" />
+    <TextView 
+        android:id="@+id/titleslw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"></TextView>
+  <TextView
+        android:id="@+id/donebuttonslpwh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/Done"
+        android:paddingRight="5dp"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        />
+  </RelativeLayout>
+  <LinearLayout 
+      android:id="@+id/whcontainer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_below="@+id/header"
+      ></LinearLayout>
+</RelativeLayout>
